@@ -1,0 +1,120 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background: url("../img/1.jpg");
+    background-size: 180vh;
+    font-size: 16px;
+}
+
+
+body header {
+    width: 700px;
+    margin: auto;
+    color: white;
+    text-shadow: 3px 3px 3px black;
+}
+body header h1 {
+    text-align: center;
+    font-size: 4em;
+    font-variant: all-small-caps;
+
+    padding: 50px 0;
+    margin-top: 5%;
+}
+
+body header p {
+    font-size: 1.5em;
+    margin-bottom: 10%;
+}
+
+
+body #myForm {
+    background: url("../img/5.jpg");
+    background-size: 600px;
+
+    padding: 60px 50px;
+    width: 500px;
+    margin: auto;
+
+    color: white;
+    font-size: 1.3em;
+    font-variant: small-caps;
+    text-shadow: 3px 3px 3px black;
+    text-align: center;
+
+    border: lightgrey groove thick;
+    box-shadow: 3px 3px 3px black;
+}
+body #myForm #inputs {
+    display: grid;
+    grid-template-columns: 1.5fr 3fr;
+    align-items: center;
+}
+
+body #myForm #inputs input, body #myForm #inputs span {
+    margin: 15px;
+}
+
+body #myForm #inputs input {
+    padding: 10px;
+    border-radius: 10px;
+}
+
+body #myForm #validate {
+    background: black;
+    color: white;
+
+    font-size: 0.9em;
+    text-align: center;
+    font-variant: all-small-caps;
+    font-weight: bold;
+
+    border-radius: 15px;
+    width: 100%;
+    margin-top: 30px;
+    padding: 2%;
+}
+
+body #myForm #validate:active, body #myForm input:active, body #myForm input:focus {
+    outline: none;
+    text-decoration: none;
+    border-color: deepskyblue;
+}
+
+
+
+
+
+
+
+
+
+body footer {
+    background: black;
+    color: white;
+    text-align: center;
+
+    display: grid;
+    align-content: center;
+    grid-template-columns: 0.3fr 2fr 1.2fr 2fr 0.3fr;
+
+    position: absolute;
+    bottom: 0;
+
+    height: 40px;
+    padding: 10px;
+    width: 100%;
+}
+
+body footer div:nth-child(3){
+    border-right: 1px solid white;
+    border-left: 1px solid white;
+}
+
+body footer a {
+    color: white;
+    text-decoration: none;
+}
