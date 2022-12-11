@@ -16,7 +16,7 @@
                 // la connexion est réussie
                 $_SESSION['login'] = $usr->name;
                 $_SESSION['role'] = $usr->role;
-                header("Location:html/admin.html");
+                header("Location:html/admin.php");
                 echo("<h1>");
                     echo("Welcomenn, " . $usr->name . ".");
                 echo("</h1>");
