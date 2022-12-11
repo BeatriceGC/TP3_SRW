@@ -4,9 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <title>Session</title>
-    <link href="css/styles.css" rel="stylesheet" type="text/css" />
-    <script type="text/javascript" src="js/main.js"></script>
+    <link href="../css/styles.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="../js/main.js"></script>
 </head>
+
 
 <body>
     <header id="header">
@@ -14,6 +15,22 @@
         <p>Page de session</p>
     </header>
 
+    <?php
+        $file = "data2.json";
+        $json = file_get_contents($file);
+        $data = json_decode($json);
+        $data[] = array(
+            "name" => "Jane Toe",
+            "age" => 28,
+            "email" => "janedoe@example.com"
+        );
+        $json = json_encode($data);
+        file_put_contents('data2.json', $json);
+
+    ?>
+
+
+    <a href="../index.html"><h1>GO BACK</h1></a>
             <section>
                 <footer>
                     <div></div>
@@ -22,5 +39,7 @@
                     <div><a href="https://cours.uqac.ca/8INF138">8INF138 - Sécurité des Réseaux et du Web</a></div>
                 </footer>
             </section>
+
     </body>
+
 </html>
