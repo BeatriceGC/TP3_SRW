@@ -6,6 +6,8 @@
         <title>TP3_SRW Admin</title>
 
         <link href="../css/admin.css" rel="stylesheet" type="text/css" />
+
+        <script type="text/javascript" src="../js/manageComplexity.js"></script>
         <script type="text/javascript" src="../js/admin.js"></script>
     </head>
 
@@ -15,7 +17,14 @@
             <p>Administrez votre site Web et gérez ses options de sécurité de façon super secrète</p>
         </header>
 
-        <div id="wrapper">
+        <div id="options">
+            <button onclick="changeWrapper(2)">Affichage des Clients Résidentiels</button>
+            <button onclick="changeWrapper(1)">Affichage des Clients d'Affaires</button>
+            <button onclick="changeWrapper(0)">Modification des paramètres de sécurité</button>
+            <button onclick="changeWrapper(3)">Modification du mot de passe</button>
+        </div>
+
+        <div class="wrapper" id="wrapReglages">
             <div class="user">
                 <h2>Complexité des Mots de Passe</h2>
                 <div id="complexitySettings">
@@ -25,27 +34,27 @@
                     <div class="settingTitle">Optimal</div>
 
                     <div class="settingCategory">Nombre de caractères</div>
-                    <input type="number" class="nbCara" value="">
-                    <input type="number" class="nbCara" value="">
-                    <input type="number" class="nbCara" value="">
+                    <input type="number" class="nbCara" value="" min="0" oninput="validity.valid||(value='');">
+                    <input type="number" class="nbCara" value="" min="0" oninput="validity.valid||(value='');">
+                    <input type="number" class="nbCara" value="" min="0" oninput="validity.valid||(value='');">
 
                     <div class="settingCategory">Nombre de chiffres</div>
-                    <input type="number" class="nbChiffres" value="">
-                    <input type="number" class="nbChiffres" value="">
-                    <input type="number" class="nbChiffres" value="">
+                    <input type="number" class="nbChiffres" value="" min="0" oninput="validity.valid||(value='');">
+                    <input type="number" class="nbChiffres" value="" min="0" oninput="validity.valid||(value='');">
+                    <input type="number" class="nbChiffres" value="" min="0" oninput="validity.valid||(value='');">
 
                     <div class="settingCategory">Nombre de caractères spéciaux</div>
-                    <input type="number" class="nbSpeciaux" value="">
-                    <input type="number" class="nbSpeciaux" value="">
-                    <input type="number" class="nbSpeciaux" value="">
+                    <input type="number" class="nbSpeciaux" value="" min="0" oninput="validity.valid||(value='');">
+                    <input type="number" class="nbSpeciaux" value="" min="0" oninput="validity.valid||(value='');">
+                    <input type="number" class="nbSpeciaux" value="" min="0" oninput="validity.valid||(value='');">
 
                     <div class="settingCategory">Nombre de majuscules</div>
-                    <input type="number" class="nbMaj" value="">
-                    <input type="number" class="nbMaj" value="">
-                    <input type="number" class="nbMaj" value="">
+                    <input type="number" class="nbMaj" value="" min="0" oninput="validity.valid||(value='');">
+                    <input type="number" class="nbMaj" value="" min="0" oninput="validity.valid||(value='');">
+                    <input type="number" class="nbMaj" value="" min="0" oninput="validity.valid||(value='');">
                 </div>
-                <button id="reset" onclick="setLastSettings()">réinitialiser</button>
-                <button id="validate" onclick="setNewSettings()">valider</button>
+                <button id="reset" onclick="setLastSettingsComplexity()">réinitialiser</button>
+                <button id="validate" onclick="setNewSettingsComplexity()">valider</button>
                 <div class="error">Oh Oh... messing with number order</div>
             </div>
 
@@ -57,21 +66,29 @@
                 <div id="ValiditySettings">
 
                     <div class="grid2">
+                        <div class="settingCategory"></div>
+                        <div>Années</div>
+                        <div>Mois</div>
+                        <div>Jours</div>
+                        <div></div>
+                    </div>
+
+                    <div class="grid2">
                         <div class="settingCategory">Durée de validité d'un mot de passe</div>
-                        <input type="number" value="" placeholder="années">
-                        <input type="number" value="" placeholder="mois">
-                        <input type="number" value="" placeholder="jours">
+                        <input class="nbT1" type="number" value="" placeholder="années" min="0" oninput="validity.valid||(value='');">
+                        <input class="nbT1" type="number" value="" placeholder="mois" min="0" oninput="validity.valid||(value='');">
+                        <input class="nbT1" type="number" value="" placeholder="jours" min="0" oninput="validity.valid||(value='');">
                         <div></div>
                     </div>
 
                     <div class="grid1">
                         <div class="settingCategory">Nombre max de tentatives d'authentification</div>
-                        <input type="number" value="">
+                        <input class="nbTry" type="number" value="" min="0" oninput="validity.valid||(value='');">
                         <div></div>
                     </div>
                 </div>
-                <button id="reset2" onclick="setLastSettings()">réinitialiser</button>
-                <button id="validate2" onclick="setNewSettings()">valider</button>
+                <button id="reset2" onclick="setLastSettingsValidity()">réinitialiser</button>
+                <button id="validate2" onclick="setNewSettingsValidity()">valider</button>
                 <div class="error">Oh Oh... messing with number order</div>
             </div>
 
@@ -80,20 +97,71 @@
                 <div id="TrySettings">
                     <div class="grid1">
                         <div class="settingCategory">Nombre max de tentatives successives</div>
-                        <input type="number" value="">
+                        <input class="nbTry" type="number" value="" min="0" oninput="validity.valid||(value='');">
+                        <div></div>
+                    </div>
+
+                    <div class="grid2">
+                        <div class="settingCategory"></div>
+                        <div>Heures</div>
+                        <div>Minutes</div>
+                        <div>Secondes</div>
                         <div></div>
                     </div>
 
                     <div class="grid2">
                         <div class="settingCategory">Délai d'attente après dépassement</div>
-                        <input type="number" value="" placeholder="heures">
-                        <input type="number" value="" placeholder="minutes">
-                        <input type="number" value="" placeholder="secondes">
+                        <input class="nbT2" type="number" value="" placeholder="heures" min="0" oninput="validity.valid||(value='');">
+                        <input class="nbT2" type="number" value="" placeholder="minutes" min="0" oninput="validity.valid||(value='');">
+                        <input class="nbT2" type="number" value="" placeholder="secondes" min="0" oninput="validity.valid||(value='');">
                         <div></div>
                     </div>
-                    <button id="reset3" onclick="setLastSettings()">réinitialiser</button>
-                    <button id="validate3" onclick="setNewSettings()">valider</button>
+                    <button id="reset3" onclick="setLastSettingsTry()">réinitialiser</button>
+                    <button id="validate3" onclick="setNewSettingsTry()">valider</button>
                     <div class="error">Oh Oh... messing with number order</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="wrapper" id="wrapAffaire">
+            <h2>Clients d'Affaires</h2>
+            <div class="user">
+                <span class="FirstName">Allain</span>
+                <span class="LastName">DUPONT</span>
+            </div>
+        </div>
+
+        <div class="wrapper" id="wrapResidentiel">
+            <h2>Clients Résidentiels</h2>
+            <div class="user">
+                <span class="FirstName">Bill</span>
+                <span class="LastName">BOCQUET</span>
+            </div>
+        </div>
+
+        <div class="wrapper" id="wrapMdP">
+            <div class="user">
+                <h2>Modification du Mot de Passe</h2>
+
+                <div class="inputs">
+                    <span>Ancien Mot de passe :</span>
+                    <input type="password" name="last_password" maxlength="12" id="last_password" placeholder="enter your current password" />
+                </div>
+
+                <div class="inputs">
+                    <span>Nouveau mot de passe :</span>
+                    <input type="password" name="password" maxlength="12" id="password" placeholder="enter your new password" />
+                </div>
+
+                <div class="inputs">
+                    <span>Confirmation nouveau Mot de passe :</span>
+                    <input type="password" name="confirm_password" maxlength="12" id="confirm_password" placeholder="confirm your new password" />
+                </div>
+
+                <div id="complexity">
+                    <div></div>
+                    <div>Complexité : <span id="complexity_span"></span></div>
+                    <div id="complexity_div"></div>
                 </div>
             </div>
         </div>

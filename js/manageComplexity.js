@@ -29,8 +29,6 @@ function UpdateCpt() {
 
     for(let k=0; k<entry.length; k++)
     {
-        console.log(entry[k]);
-
         for(let i=0; i<speciaux.length; i++) if (entry[k] == speciaux[i]) {cptSpeciaux++; break;}
         for(let i=0; i<lettresMaj.length; i++) if (entry[k] == lettresMaj[i]) {cptMaj++; break;}
         for(let i=0; i<chiffres.length; i++) if (entry[k] == chiffres[i]) {cptChiffres++; break;}
@@ -73,6 +71,8 @@ function UpdateComplexity() {
         complexity_color = "black";
     }
 
+    console.log(complexity)
+
     document.getElementById("complexity").style.visibility = "visible";
     document.getElementById("complexity_span").innerText = complexity;
     document.getElementById("complexity_div").style.background = complexity_color;
@@ -83,7 +83,6 @@ function addEventInput(){
     input.addEventListener("input", function (event) {
         if(mode === "signup")
         {
-            console.log("babax");
             UpdateCpt();
             UpdateComplexity();
         }

@@ -19,17 +19,50 @@ body header h1 {
     font-size: 3em;
     font-variant: all-small-caps;
 
-    padding: 40px 0;
+    padding: 20px 0;
 }
 
 body header p {
     font-size: 1.5em;
-    margin-bottom: 4%;
+    margin: auto;
+    width: 850px;
+    padding-bottom: 10px;
 }
 
 
+body #options {
 
-body #wrapper {
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+
+    padding: 20px;
+    width: 900px;
+}
+
+body #options button{
+    background: saddlebrown;
+    color: white;
+
+    font-size: 1em;
+    text-align: center;
+    font-variant: all-small-caps;
+    font-weight: bold;
+
+    border-radius: 10px;
+    padding: 5%;
+    margin: 0 3px;
+}
+
+
+body #options button:active, body #options button:hover, body #wrapper .user input:active, body #wrapper .user input:focus {
+    outline: none;
+    text-decoration: none;
+    border-color: deepskyblue;
+}
+
+
+body .wrapper {
     background: antiquewhite;
 
     padding: 10px;
@@ -46,10 +79,12 @@ body #wrapper {
 
     overflow-y: scroll;
     scrollbar-color: saddlebrown orange;
+
+    display: none;
 }
 
 
-body #wrapper .user {
+body .wrapper .user {
     background: navajowhite;
     border: white thick outset;
     position: relative;
@@ -57,33 +92,33 @@ body #wrapper .user {
     margin: 10px;
 }
 
-body #wrapper .user:nth-child(1) {
+body .wrapper:nth-child(1) .user:nth-child(1) {
     height: 450px;
 }
 
-body #wrapper h2 {
+body .wrapper h2 {
     margin: 20px 0;
     font-variant: all-small-caps;
 }
 
-body #wrapper #complexitySettings {
+body .wrapper #complexitySettings {
     display: grid;
     align-items: center;
     margin: 0 80px;
     grid-template: repeat(5, 1fr) / 1.5fr repeat(3, 1fr) ;
 }
 
-body #wrapper #complexitySettings div:nth-child(1){
+body .wrapper #complexitySettings div:nth-child(1){
     text-align: left;
 }
 
-body #wrapper #complexitySettings .settingCategory{
+body .wrapper #complexitySettings .settingCategory{
     padding: 5px;
     font-size: 0.8em;
     text-align: left;
 }
 
-body #wrapper #complexitySettings input{
+body .wrapper #complexitySettings input{
     width: 70px;
     padding: 5px;
     text-align: center;
@@ -91,7 +126,7 @@ body #wrapper #complexitySettings input{
 }
 
 
-body #wrapper .user button{
+body .wrapper .user button{
     background: black;
     color: white;
 
@@ -107,51 +142,130 @@ body #wrapper .user button{
 }
 
 
-body #wrapper .user button:active, body #wrapper .user button:hover, body #wrapper .user input:active, body #wrapper .user input:focus {
+body .wrapper .user button:active, body .wrapper .user button:hover, body .wrapper .user input:active, body .wrapper .user input:focus {
     outline: none;
     text-decoration: none;
     border-color: deepskyblue;
 }
 
-body #wrapper .user .error{
+body .wrapper .user .error{
     padding: 15px;
     visibility: hidden;
 }
 
 
 
-body #wrapper #ValiditySettings, body #wrapper #TrySettings {
+body .wrapper #ValiditySettings, body .wrapper #TrySettings {
     padding: 20px 40px 0 40px;
 }
 
-body #wrapper .grid1 {
+body .wrapper .grid1 {
     display: grid;
     grid-template: repeat(2, 1fr) / 2fr 1fr 1fr;
     align-items: center;
 }
 
-body #wrapper .grid2 {
+body .wrapper .grid2 {
     display: grid;
     grid-template: repeat(2, 1fr) / 3.7fr repeat(3, 1fr);
     align-items: center;
 }
 
-html body #wrapper .user:first-child button {
+html body .wrapper .user:first-child button {
     margin-top: 30px;
 }
 
 
-body #wrapper #ValiditySettings .settingCategory, body #wrapper #TrySettings .settingCategory{
+body .wrapper #ValiditySettings .settingCategory, body .wrapper #TrySettings .settingCategory{
     font-size: 0.8em;
     text-align: left;
 }
 
-body #wrapper #ValiditySettings input, body #wrapper #TrySettings input {
+body .wrapper #ValiditySettings input, body .wrapper #TrySettings input {
     width: 80px;
     padding: 5px;
     text-align: center;
     margin: auto;
 }
+
+body #wrapResidentiel .user, body #wrapAffaire .user {
+    padding: 15px;
+    text-align: center;
+}
+body #wrapResidentiel .FirstName, body #wrapAffaire .FirstName {
+    font-variant: none;
+    margin-right: 30px;
+}
+body #wrapResidentiel .LastName, body #wrapAffaire .LastName {
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+
+
+
+
+
+
+body #wrapMdP {
+    overflow-y: hidden;
+}
+
+body #wrapMdP .inputs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    padding: 0 40px;
+}
+
+body #wrapMdP .inputs input, body #wrapMdP .inputs span {
+    margin: 20px 10px 0 10px;
+}
+body #wrapMdP .inputs span {
+    font-variant: small-caps;
+    font-size: 1em;
+    text-align: left;
+}
+
+body #wrapMdP .inputs input {
+    padding: 10px;
+    border-radius: 10px;
+    font-size: .7em;
+}
+
+body #wrapMdP #error_id, body #wrapMdP #complexity {
+    margin: 10px;
+    font-size: 1.3em;
+    text-align: right;
+}
+
+body #wrapMdP #complexity {
+    margin-right: 50px;
+
+    visibility: hidden;
+    display: grid;
+    grid-template-columns: 10fr 10fr 1fr;
+    align-items: center;
+    text-align: right;
+}
+body #wrapMdP #complexity div {
+    padding: 10px;
+}
+
+body #wrapMdP #complexity #complexity_div {
+    background: black;
+    border-radius: 10px;
+    height: 02%;
+    width: 40px;
+}
+
+
+
+
+
+
+
+
 
 
 
