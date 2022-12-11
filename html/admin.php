@@ -19,6 +19,8 @@ if(!isset($_SESSION['login'])){
 
         <script type="text/javascript" src="../js/manageComplexity.js"></script>
         <script type="text/javascript" src="../js/manageSettings.js"></script>
+        <script type="text/javascript" src="../js/changeMdP.js"></script>
+
         <script type="text/javascript" src="../js/mainAdmin.js"></script>
     </head>
 
@@ -33,6 +35,7 @@ if(!isset($_SESSION['login'])){
             <button onclick="changeWrapper(1)">Affichage des Clients d'Affaires</button>
             <button onclick="changeWrapper(0)">Modification des paramètres de sécurité</button>
             <button onclick="changeWrapper(3)">Modification du mot de passe</button>
+            <button>Déconnexion</button>
         </div>
 
         <div class="wrapper" id="wrapReglages">
@@ -68,10 +71,6 @@ if(!isset($_SESSION['login'])){
                 <button id="validate" onclick="setNewSettingsComplexity()">valider</button>
                 <div class="error">Oh Oh... messing with number order</div>
             </div>
-
-            <a href="../index.html"><button>Index</button></a>
-            <a href="residentielClient.html"><button>ResidentielClient</button></a>
-            <a href="affaireClient.php"><button>AffaireClient</button></a>
 
             <div class="user">
                 <h2>Validité des Mots de Passe</h2>
@@ -177,9 +176,13 @@ if(!isset($_SESSION['login'])){
                     <div>Complexité : <span id="complexity_span"></span></div>
                     <div id="complexity_div"></div>
                 </div>
-                <button id="checkMdP" onclick="setNewSettingsValidity()">valider</button>
+                <button id="checkMdP" onclick="changeMdP()">valider</button>
             </div>
         </div>
+
+        <a href="../index.html"><button>Index</button></a>
+        <a href="residentielClient.html"><button>ResidentielClient</button></a>
+        <a href="affaireClient.php"><button>AffaireClient</button></a>
 
         <footer>
             <div></div>

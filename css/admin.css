@@ -7,6 +7,7 @@ body {
     background: url("../img/5.jpg");
     background-size: 180vh;
     font-size: 16px;
+    min-width: 1000px;
 }
 
 body header {
@@ -38,10 +39,10 @@ body #options {
 
     margin: auto;
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(5, 1fr);
 
     padding: 20px;
-    width: 900px;
+    width: 1100px;
 }
 
 body #options button{
@@ -56,6 +57,10 @@ body #options button{
     border-radius: 10px;
     padding: 5%;
     margin: 0 3px;
+}
+
+body #options button:last-child{
+    background: darkred;
 }
 
 
@@ -130,7 +135,7 @@ body .wrapper #complexitySettings input{
 }
 
 
-body .wrapper .user button{
+body .wrapper button{
     background: black;
     color: white;
 
@@ -145,14 +150,14 @@ body .wrapper .user button{
     padding: 1.2%;
 }
 
-html body #wrapMdP .user button{
+html body #wrapMdP button{
     margin-top: 0;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
     width: 80%;
 }
 
 
-body .wrapper .user button:active, body .wrapper .user button:hover, body .wrapper .user input:active, body .wrapper .user input:focus {
+body .wrapper button:active, body .wrapper button:hover, body .wrapper .user input:active, body .wrapper .user input:focus {
     outline: none;
     text-decoration: none;
     border-color: deepskyblue;
@@ -217,7 +222,9 @@ body #wrapResidentiel .LastName, body #wrapAffaire .LastName {
 
 
 
-
+body #wrapMdP {
+    overflow-y: hidden;
+}
 
 body #wrapMdP .inputs {
     display: grid;
@@ -227,7 +234,7 @@ body #wrapMdP .inputs {
 }
 
 body #wrapMdP .inputs input, body #wrapMdP .inputs span {
-    margin: 20px 10px 0 10px;
+    margin: 15px 10px 0 10px;
 }
 body #wrapMdP .inputs span {
     font-variant: small-caps;
@@ -243,7 +250,7 @@ body #wrapMdP .inputs input {
 
 body #wrapMdP #error_id, body #wrapMdP #complexity {
     margin: 10px;
-    font-size: 1.3em;
+    font-size: 1em;
     text-align: right;
 }
 
@@ -269,7 +276,7 @@ body #wrapMdP #complexity #complexity_div {
 
 body #wrapMdP .errorUser {
     visibility: hidden;
-    margin: 15px;
+    margin: 5px;
     text-align: right;
 }
 
@@ -293,6 +300,7 @@ body footer {
     height: 40px;
     padding: 10px;
     width: 100%;
+    min-width: 1000px;
 }
 
 body footer div:nth-child(3){

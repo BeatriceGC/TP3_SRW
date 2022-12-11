@@ -7,44 +7,80 @@ body {
     background: url("../img/5.jpg");
     background-size: 180vh;
     font-size: 16px;
+    min-width: 1000px;
 }
 
 body header {
-    width: 700px;
+    text-align: center;
     margin: auto;
     text-shadow: 3px 3px 3px saddlebrown;
 }
 
 body header h1 {
-    text-align: center;
-    font-size: 3em;
-    font-variant: all-small-caps;
-
-    padding: 40px 0;
-    margin-top: 2%;
+    font-size: 1.8em;
+    font-weight: normal;
+    padding: 30px 0;
 }
 
-body header span {
+body header h1 span {
     font-size: 1.5em;
+    font-weight: bold;
 }
 
 body header p {
     font-size: 1.5em;
-    margin-bottom: 8%;
+    margin: auto;
+    width: 850px;
+    padding-bottom: 10px;
 }
 
 
-body #wrapper {
+body #options {
+
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+    padding: 20px;
+    width: 900px;
+}
+
+body #options button{
+    background: saddlebrown;
+    color: white;
+
+    font-size: 1em;
+    text-align: center;
+    font-variant: all-small-caps;
+    font-weight: bold;
+
+    border-radius: 10px;
+    padding: 5%;
+    margin: 0 3px;
+}
+
+body #options button:last-child{
+    background: darkred;
+}
+
+
+body #options button:active, body #options button:hover, body #wrapper .user input:active, body #wrapper .user input:focus {
+    outline: none;
+    text-decoration: none;
+    border-color: deepskyblue;
+}
+
+
+body .wrapper {
     background: antiquewhite;
 
     padding: 10px;
-    width: 550px;
-    height: 350px;
+    width: 850px;
+    height: 480px;
     margin: auto;
 
     font-size: 1.3em;
     font-variant: small-caps;
-    text-shadow: 3px 3px 3px black;
     text-align: center;
 
     border: saddlebrown groove thick;
@@ -52,15 +88,141 @@ body #wrapper {
 
     overflow-y: scroll;
     scrollbar-color: saddlebrown orange;
+
+    display: none;
 }
 
 
-body #wrapper .user {
-    position: relative;
+body .wrapper .user {
     background: navajowhite;
-    height: 30px;
+    border: white thick outset;
+    position: relative;
     padding: 5px;
+    margin: 10px;
 }
+
+body .wrapper h2 {
+    margin: 20px 0;
+    font-variant: all-small-caps;
+}
+
+
+body .wrapper button{
+    background: black;
+    color: white;
+
+    font-size: 1em;
+    text-align: center;
+    font-variant: all-small-caps;
+    font-weight: bold;
+    margin-top: 10px;
+
+    border-radius: 15px;
+    width: 25%;
+    padding: 1.2%;
+}
+
+html body #wrapMdP button{
+    margin-top: 0;
+    margin-bottom: 15px;
+    width: 80%;
+}
+
+
+body .wrapper button:active, body .wrapper button:hover, body .wrapper .user input:active, body .wrapper .user input:focus {
+    outline: none;
+    text-decoration: none;
+    border-color: deepskyblue;
+}
+
+body .wrapper .user .error{
+    padding: 15px;
+    visibility: hidden;
+}
+
+
+
+
+body #wrapResidentiel .user, body #wrapAffaire .user {
+    padding: 15px;
+    text-align: center;
+}
+body #wrapResidentiel .FirstName, body #wrapAffaire .FirstName {
+    font-variant: none;
+    margin-right: 30px;
+}
+body #wrapResidentiel .LastName, body #wrapAffaire .LastName {
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+
+
+
+
+
+
+body #wrapMdP {
+    overflow-y: hidden;
+}
+
+body #wrapMdP .inputs {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    align-items: center;
+    padding: 0 40px;
+}
+
+body #wrapMdP .inputs input, body #wrapMdP .inputs span {
+    margin: 15px 10px 0 10px;
+}
+body #wrapMdP .inputs span {
+    font-variant: small-caps;
+    font-size: 1em;
+    text-align: left;
+}
+
+body #wrapMdP .inputs input {
+    padding: 10px;
+    border-radius: 10px;
+    font-size: .7em;
+}
+
+body #wrapMdP #error_id, body #wrapMdP #complexity {
+    margin: 10px;
+    font-size: 1em;
+    text-align: right;
+}
+
+body #wrapMdP #complexity {
+    margin-right: 50px;
+
+    visibility: hidden;
+    display: grid;
+    grid-template-columns: 10fr 10fr 1fr;
+    align-items: center;
+    text-align: right;
+}
+body #wrapMdP #complexity div {
+    padding: 10px;
+}
+
+body #wrapMdP #complexity #complexity_div {
+    background: black;
+    border-radius: 10px;
+    height: 02%;
+    width: 40px;
+}
+
+body #wrapMdP .errorUser {
+    visibility: hidden;
+    margin: 5px;
+    text-align: right;
+}
+
+
+
+
 
 
 body footer {
@@ -78,6 +240,7 @@ body footer {
     height: 40px;
     padding: 10px;
     width: 100%;
+    min-width: 1000px;
 }
 
 body footer div:nth-child(3){
