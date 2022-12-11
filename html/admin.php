@@ -1,7 +1,13 @@
 <!DOCTYPE html>
 <?php
 session_start();
-if(!isset($_SESSION['login'])) header("Location:signin.php");
+if(!isset($_SESSION['login'])){
+    header("Location:../index.html");
+} else {
+//    session_destroy();
+//    header('Location:../index.html');
+//    exit;
+}
 ?>
 
 <html lang="fr">
@@ -65,7 +71,7 @@ if(!isset($_SESSION['login'])) header("Location:signin.php");
 
             <a href="../index.html"><button>Index</button></a>
             <a href="residentielClient.html"><button>ResidentielClient</button></a>
-            <a href="affaireClient.html"><button>AffaireClient</button></a>
+            <a href="affaireClient.php"><button>AffaireClient</button></a>
 
             <div class="user">
                 <h2>Validité des Mots de Passe</h2>
