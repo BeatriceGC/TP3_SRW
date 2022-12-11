@@ -46,10 +46,56 @@
                 </div>
                 <button id="reset" onclick="setLastSettings()">réinitialiser</button>
                 <button id="validate" onclick="setNewSettings()">valider</button>
-                <div id="error">Oh Oh... messing with number order</div>
+                <div class="error">Oh Oh... messing with number order</div>
             </div>
+
             <a href="../index.html"><button>index</button></a>
             <a href="affichage.html"><button>affichage</button></a>
+
+            <div class="user">
+                <h2>Validité des Mots de Passe</h2>
+                <div id="ValiditySettings">
+
+                    <div class="grid2">
+                        <div class="settingCategory">Durée de validité d'un mot de passe</div>
+                        <input type="number" value="" placeholder="années">
+                        <input type="number" value="" placeholder="mois">
+                        <input type="number" value="" placeholder="jours">
+                        <div></div>
+                    </div>
+
+                    <div class="grid1">
+                        <div class="settingCategory">Nombre max de tentatives d'authentification</div>
+                        <input type="number" value="">
+                        <div></div>
+                    </div>
+                </div>
+                <button id="reset2" onclick="setLastSettings()">réinitialiser</button>
+                <button id="validate2" onclick="setNewSettings()">valider</button>
+                <div class="error">Oh Oh... messing with number order</div>
+            </div>
+
+            <div class="user">
+                <h2>Gestion des tentatives</h2>
+                <div id="TrySettings">
+                    <div class="grid1">
+                        <div class="settingCategory">Nombre max de tentatives successives</div>
+                        <input type="number" value="">
+                        <div></div>
+                    </div>
+
+                    <div class="grid2">
+                        <div class="settingCategory">Délai d'attente après dépassement</div>
+                        <input type="number" value="" placeholder="heures">
+                        <input type="number" value="" placeholder="minutes">
+                        <input type="number" value="" placeholder="secondes">
+                        <div></div>
+                    </div>
+                    <button id="reset3" onclick="setLastSettings()">réinitialiser</button>
+                    <button id="validate3" onclick="setNewSettings()">valider</button>
+                    <div class="error">Oh Oh... messing with number order</div>
+                </div>
+            </div>
         </div>
 
         <footer>

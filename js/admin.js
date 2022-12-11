@@ -28,14 +28,26 @@ function setNewSettings(){
     let nbSpeciaux = document.getElementsByClassName("nbSpeciaux");
     let nbMaj = document.getElementsByClassName("nbMaj");
 
-    document.getElementById("error").style.visibility = "hidden";
+    document.getElementsByClassName("error")[0].style.visibility = "hidden";
 
     let valid;
 
-    if(spanCara[0] > spanCara[1] || spanCara[1] > spanCara[2]) valid = false;
-    else if(nbChiffres[0].value > nbChiffres[1].value || nbChiffres[1].value > nbChiffres[2].value) valid = false;
-    else if(nbSpeciaux[0].value > nbSpeciaux[1].value || nbSpeciaux[1].value > nbSpeciaux[2].value) valid = false;
-    else if(nbMaj[0].value > nbMaj[1].value || nbMaj[1].value > nbMaj[2].value) valid = false;
+    if(parseInt(spanCara[0].value, 10) > parseInt(spanCara[1].value, 10) ||
+        parseInt(spanCara[1].value, 10) > parseInt(spanCara[2].value, 10) ||
+        parseInt(spanCara[0].value, 10) > parseInt(spanCara[2].value, 10)) valid = false;
+
+    else if(parseInt(nbChiffres[0].value, 10) > parseInt(nbChiffres[1].value, 10) ||
+        parseInt(nbChiffres[1].value, 10) > parseInt(nbChiffres[2].value, 10) ||
+        parseInt(nbChiffres[0].value, 10) > parseInt(nbChiffres[2].value, 10)) valid = false;
+
+    else if(parseInt(nbSpeciaux[0].value, 10) > parseInt(nbSpeciaux[1].value, 10) ||
+        parseInt(nbSpeciaux[1].value, 10) > parseInt(nbSpeciaux[2].value, 10) ||
+        parseInt(nbSpeciaux[0].value, 10) > parseInt(nbSpeciaux[2].value, 10)) valid = false;
+
+    else if(parseInt(nbMaj[0].value, 10) > parseInt(nbMaj[1].value, 10) ||
+        parseInt(nbMaj[1].value, 10) > parseInt(nbMaj[2].value, 10) ||
+        parseInt(nbMaj[0].value, 10) > parseInt(nbMaj[2].value, 10)) valid = false;
+
     else valid = true;
 
     if(valid)
@@ -47,6 +59,7 @@ function setNewSettings(){
             complexityJSON2.nbSpeciaux[i] = nbSpeciaux[i].value;
             complexityJSON2.nbMaj[i] = nbMaj[i].value;
         }
+
         const dataStringReset = JSON.stringify(complexityJSON2);
         localStorage.setItem('my-data', dataStringReset);
 
@@ -55,7 +68,7 @@ function setNewSettings(){
     }
     else
     {
-        document.getElementById("error").style.visibility = "visible";
+        document.getElementsByClassName("error")[0].style.visibility = "visible";
     }
 }
 

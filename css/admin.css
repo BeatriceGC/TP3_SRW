@@ -20,7 +20,6 @@ body header h1 {
     font-variant: all-small-caps;
 
     padding: 40px 0;
-    margin-top: 2%;
 }
 
 body header p {
@@ -44,17 +43,22 @@ body #wrapper {
 
     border: saddlebrown groove thick;
     box-shadow: 3px 3px 3px black;
+
+    overflow-y: scroll;
+    scrollbar-color: saddlebrown orange;
 }
 
 
 body #wrapper .user {
+    background: navajowhite;
+    border: white thick outset;
     position: relative;
     padding: 5px;
+    margin: 10px;
 }
 
 body #wrapper .user:nth-child(1) {
-    background: navajowhite;
-    height: 460px;
+    height: 450px;
 }
 
 body #wrapper h2 {
@@ -95,8 +99,8 @@ body #wrapper .user button{
     text-align: center;
     font-variant: all-small-caps;
     font-weight: bold;
+    margin-top: 10px;
 
-    margin-top: 30px;
     border-radius: 15px;
     width: 25%;
     padding: 1.2%;
@@ -109,10 +113,46 @@ body #wrapper .user button:active, body #wrapper .user button:hover, body #wrapp
     border-color: deepskyblue;
 }
 
-body #wrapper .user #error{
+body #wrapper .user .error{
     padding: 15px;
     visibility: hidden;
 }
+
+
+
+body #wrapper #ValiditySettings, body #wrapper #TrySettings {
+    padding: 20px 40px 0 40px;
+}
+
+body #wrapper .grid1 {
+    display: grid;
+    grid-template: repeat(2, 1fr) / 2fr 1fr 1fr;
+    align-items: center;
+}
+
+body #wrapper .grid2 {
+    display: grid;
+    grid-template: repeat(2, 1fr) / 3.7fr repeat(3, 1fr);
+    align-items: center;
+}
+
+html body #wrapper .user:first-child button {
+    margin-top: 30px;
+}
+
+
+body #wrapper #ValiditySettings .settingCategory, body #wrapper #TrySettings .settingCategory{
+    font-size: 0.8em;
+    text-align: left;
+}
+
+body #wrapper #ValiditySettings input, body #wrapper #TrySettings input {
+    width: 80px;
+    padding: 5px;
+    text-align: center;
+    margin: auto;
+}
+
 
 
 

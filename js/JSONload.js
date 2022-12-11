@@ -2,9 +2,6 @@
 const dataString2 = localStorage.getItem('my-data');
 const complexityJSON = JSON.parse(dataString2);
 
-console.log("JSONload");
-console.log(complexityJSON)
-
 let valid = false;
 let complexity = "insuffisante";
 let complexity_color = "black";
@@ -84,8 +81,19 @@ function UpdateComplexity() {
 function addEventInput(){
     let input = document.getElementById('password');
     input.addEventListener("input", function (event) {
-        console.log("baba")
-        UpdateCpt();
-        UpdateComplexity();
+        if(mode === "signup")
+        {
+            console.log("babax");
+            UpdateCpt();
+            UpdateComplexity();
+        }
     });
+}
+
+function updateInputLength() {
+    console.log("JSONload");
+    console.log(complexityJSON)
+
+    document.getElementById('password').maxLength = complexityJSON.nbCaracteres[2];
+    document.getElementById('password2').maxLength = complexityJSON.nbCaracteres[2];
 }
