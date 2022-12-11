@@ -16,10 +16,14 @@ body header {
 }
 
 body header h1 {
-    font-size: 3em;
-    font-variant: all-small-caps;
+    font-size: 1.8em;
+    font-weight: normal;
+    padding: 30px 0;
+}
 
-    padding: 20px 0;
+body header h1 span {
+    font-size: 1.5em;
+    font-weight: bold;
 }
 
 body header p {
@@ -67,7 +71,7 @@ body .wrapper {
 
     padding: 10px;
     width: 850px;
-    height: 500px;
+    height: 480px;
     margin: auto;
 
     font-size: 1.3em;
@@ -141,6 +145,12 @@ body .wrapper .user button{
     padding: 1.2%;
 }
 
+html body #wrapMdP .user button{
+    margin-top: 0;
+    margin-bottom: 20px;
+    width: 80%;
+}
+
 
 body .wrapper .user button:active, body .wrapper .user button:hover, body .wrapper .user input:active, body .wrapper .user input:focus {
     outline: none;
@@ -207,13 +217,11 @@ body #wrapResidentiel .LastName, body #wrapAffaire .LastName {
 
 
 
-body #wrapMdP {
-    overflow-y: hidden;
-}
+
 
 body #wrapMdP .inputs {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1.1fr 1fr;
     align-items: center;
     padding: 0 40px;
 }
@@ -259,13 +267,11 @@ body #wrapMdP #complexity #complexity_div {
     width: 40px;
 }
 
-
-
-
-
-
-
-
+body #wrapMdP .errorUser {
+    visibility: hidden;
+    margin: 15px;
+    text-align: right;
+}
 
 
 

@@ -29,7 +29,7 @@
                     <span>Identifiant :</span>
                     <input type="email" name="email" id="email" placeholder="enter your e-mail" />
                 </div>
-                <div id="error_id">Cet utilisateur existe déjà, WTF</div>
+                <div class="errorUser" id="error_id">Cet utilisateur existe déjà, WTF</div>
 
                 <div class="inputs">
                     <span>Mot de passe :</span>
@@ -40,6 +40,7 @@
                     <span>Confirmation Mot de passe :</span>
                     <input type="password" name="password" maxlength="12" id="password2" placeholder="confirm your password" />
                 </div>
+                <div class="errorUser" id="error_password">Les mots de passe se dévisagent sans se reconnaitre :/</div>
 
                 <div id="complexity">
                     <div></div>
@@ -49,11 +50,15 @@
 
                 <input id="validate" type="submit" value="Se Connecter">
             </form>
+
             <button id="switch" onclick="switchMode()">Envie de <span id="switch_span">s'inscire</span> ? Cliquez moi !</button>
+
             <a href="html/admin.html"><button>Admin</button></a>
-            <a href="html/affichage.html"><button>Affichage</button></a>
+            <a href="html/residentielClient.html"><button>ResidentielClient</button></a>
+            <a href="html/affaireClient.html"><button>AffaireClient</button></a>
 
         </div>
+
         <footer>
             <div></div>
             <div>Hadrien BELLEVILLE - <a href="https://www.linkedin.com/in/b%C3%A9atrice-garcia-cegarra-bb6a841a2/">Béatrice GARCIA CEGARRA</a></div>

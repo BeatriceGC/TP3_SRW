@@ -32,10 +32,11 @@ body header p {
 
 body #wrapper {
     background: url("../img/5.jpg");
-    background-size: 650px;
+    background-size: 660px;
 
     padding: 10px 50px 30px 50px;
     width: 550px;
+    height: 400px;
     margin: auto;
 
     color: white;
@@ -44,7 +45,11 @@ body #wrapper {
 
     border: lightgrey groove thick;
     box-shadow: 3px 3px 3px black;
+
+    overflow-y: scroll;
+    scrollbar-color: saddlebrown orange;
 }
+
 body #myForm .inputs {
     display: grid;
     grid-template-columns: 1.5fr 3fr;
@@ -70,7 +75,8 @@ body #myForm #confirm_password{
 }
 
 
-body #myForm #error_id, body #myForm #complexity {
+body #myForm .errorUser, body #myForm #complexity {
+    visibility: hidden;
     margin: 10px;
     font-size: 1.3em;
     text-align: right;
