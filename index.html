@@ -21,10 +21,8 @@
             <p>Bienvenue sur cette application sécurisée !<br>Détendez-vous et profitez d'une connexion en toute sécurité</p>
         </header>
 
-        <a href="php/action.php"><h1>Click</h1></a>
-
         <div id="wrapper">
-            <form id="myForm" name="myForm" onsubmit="return signUp()" method="post">
+            <form id="myForm" name="myForm" action="action.php" method="post">
                 <div class="inputs">
                     <span>Identifiant :</span>
                     <input type="email" name="email" id="email" placeholder="enter your e-mail" />
@@ -38,7 +36,7 @@
 
                 <div class="inputs" id="confirm_password">
                     <span>Confirmation Mot de passe :</span>
-                    <input type="password" name="password" maxlength="12" id="password2" placeholder="confirm your password" />
+                    <input type="password" name="password2" maxlength="12" id="password2" placeholder="confirm your password" />
                 </div>
                 <div class="errorUser" id="error_password">Les mots de passe se dévisagent sans se reconnaitre :/</div>
 
@@ -53,7 +51,7 @@
 
             <button id="switch" onclick="switchMode()">Envie de <span id="switch_span">s'inscire</span> ? Cliquez moi !</button>
 
-            <a href="html/admin.html"><button>Admin</button></a>
+            <a href="html/admin.php"><button>Admin</button></a>
             <a href="html/residentielClient.html"><button>ResidentielClient</button></a>
             <a href="html/affaireClient.html"><button>AffaireClient</button></a>
 
