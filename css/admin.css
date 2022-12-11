@@ -35,12 +35,11 @@ body #wrapper {
 
     padding: 10px;
     width: 850px;
-    height: 400px;
+    height: 500px;
     margin: auto;
 
     font-size: 1.3em;
     font-variant: small-caps;
-    text-shadow: 3px 3px 3px black;
     text-align: center;
 
     border: saddlebrown groove thick;
@@ -50,10 +49,72 @@ body #wrapper {
 
 body #wrapper .user {
     position: relative;
-    background: navajowhite;
-    height: 30px;
     padding: 5px;
 }
+
+body #wrapper .user:nth-child(1) {
+    background: navajowhite;
+    height: 460px;
+}
+
+body #wrapper h2 {
+    margin: 20px 0;
+    font-variant: all-small-caps;
+}
+
+body #wrapper #complexitySettings {
+    display: grid;
+    align-items: center;
+    margin: 0 80px;
+    grid-template: repeat(5, 1fr) / 1.5fr repeat(3, 1fr) ;
+}
+
+body #wrapper #complexitySettings div:nth-child(1){
+    text-align: left;
+}
+
+body #wrapper #complexitySettings .settingCategory{
+    padding: 5px;
+    font-size: 0.8em;
+    text-align: left;
+}
+
+body #wrapper #complexitySettings input{
+    width: 70px;
+    padding: 5px;
+    text-align: center;
+    margin: auto;
+}
+
+
+body #wrapper .user button{
+    background: black;
+    color: white;
+
+    font-size: 1em;
+    text-align: center;
+    font-variant: all-small-caps;
+    font-weight: bold;
+
+    margin-top: 30px;
+    border-radius: 15px;
+    width: 25%;
+    padding: 1.2%;
+}
+
+
+body #wrapper .user button:active, body #wrapper .user button:hover, body #wrapper .user input:active, body #wrapper .user input:focus {
+    outline: none;
+    text-decoration: none;
+    border-color: deepskyblue;
+}
+
+body #wrapper .user #error{
+    padding: 15px;
+    visibility: hidden;
+}
+
+
 
 
 

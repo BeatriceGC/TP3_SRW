@@ -21,8 +21,8 @@ body header h1 {
     font-size: 4em;
     font-variant: all-small-caps;
 
-    padding: 50px 0;
-    margin-top: 5%;
+    padding: 40px 0;
+    margin-top: 3%;
 }
 
 body header p {
@@ -31,54 +31,89 @@ body header p {
 }
 
 
-body #myForm {
+body #wrapper {
     background: url("../img/5.jpg");
-    background-size: 600px;
+    background-size: 650px;
 
-    padding: 60px 50px;
-    width: 500px;
+    padding: 10px 50px 30px 50px;
+    width: 550px;
     margin: auto;
 
     color: white;
-    font-size: 1.3em;
-    font-variant: small-caps;
     text-shadow: 3px 3px 3px black;
     text-align: center;
 
     border: lightgrey groove thick;
     box-shadow: 3px 3px 3px black;
 }
-body #myForm #inputs {
+body #myForm .inputs {
     display: grid;
     grid-template-columns: 1.5fr 3fr;
     align-items: center;
 }
 
-body #myForm #inputs input, body #myForm #inputs span {
-    margin: 15px;
+body #myForm .inputs input, body #myForm .inputs span {
+    margin: 20px 10px 0 10px;
+}
+body #myForm .inputs span {
+    font-variant: small-caps;
+    font-size: 1.5em;
 }
 
-body #myForm #inputs input {
+body #myForm .inputs input {
     padding: 10px;
     border-radius: 10px;
+    font-size: 1em;
 }
 
-body #myForm #validate {
+
+body #myForm #error_id, body #myForm #complexity {
+    margin: 10px;
+    font-size: 1.3em;
+    text-align: right;
+}
+
+body #myForm #complexity {
+    margin: 10px;
+
+    display: grid;
+    grid-template-columns: 10fr 10fr 1fr;
+    align-items: center;
+    text-align: right;
+    visibility: hidden;
+}
+body #myForm #complexity div {
+    padding: 10px;
+}
+
+body #myForm #complexity #complexity_div {
+    background: black;
+    border-radius: 10px;
+    height: 02%;
+    width: 40px;
+}
+
+
+body #myForm #validate,body #switch{
     background: black;
     color: white;
 
-    font-size: 0.9em;
+    font-size: 1.1em;
     text-align: center;
     font-variant: all-small-caps;
     font-weight: bold;
 
+    margin-top: 30px;
     border-radius: 15px;
     width: 100%;
-    margin-top: 30px;
     padding: 2%;
 }
 
-body #myForm #validate:active, body #myForm input:active, body #myForm input:focus {
+body #switch {
+    margin-top: 15px;
+}
+
+body #myForm #validate:active, body #switch:active, body #myForm input:active, body #myForm input:focus {
     outline: none;
     text-decoration: none;
     border-color: deepskyblue;

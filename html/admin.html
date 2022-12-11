@@ -6,16 +6,50 @@
         <title>TP3_SRW Admin</title>
 
         <link href="../css/admin.css" rel="stylesheet" type="text/css" />
+        <script type="text/javascript" src="../js/admin.js"></script>
     </head>
 
     <body>
         <header id="header">
             <h1>Administration</h1>
-            <p>Administrez votre site Web et gérer ses options de sécurité de façon super secrète</p>
+            <p>Administrez votre site Web et gérez ses options de sécurité de façon super secrète</p>
         </header>
 
         <div id="wrapper">
-            <div class="user"></div>
+            <div class="user">
+                <h2>Complexité des Mots de Passe</h2>
+                <div id="complexitySettings">
+                    <div class="settingTitle">Paramètre</div>
+                    <div class="settingTitle">Minimal</div>
+                    <div class="settingTitle">Moyen</div>
+                    <div class="settingTitle">Optimal</div>
+
+                    <div class="settingCategory">Nombre de caractères</div>
+                    <input type="number" class="nbCara" value="">
+                    <input type="number" class="nbCara" value="">
+                    <input type="number" class="nbCara" value="">
+
+                    <div class="settingCategory">Nombre de chiffres</div>
+                    <input type="number" class="nbChiffres" value="">
+                    <input type="number" class="nbChiffres" value="">
+                    <input type="number" class="nbChiffres" value="">
+
+                    <div class="settingCategory">Nombre de caractères spéciaux</div>
+                    <input type="number" class="nbSpeciaux" value="">
+                    <input type="number" class="nbSpeciaux" value="">
+                    <input type="number" class="nbSpeciaux" value="">
+
+                    <div class="settingCategory">Nombre de majuscules</div>
+                    <input type="number" class="nbMaj" value="">
+                    <input type="number" class="nbMaj" value="">
+                    <input type="number" class="nbMaj" value="">
+                </div>
+                <button id="reset" onclick="setLastSettings()">réinitialiser</button>
+                <button id="validate" onclick="setNewSettings()">valider</button>
+                <div id="error">Oh Oh... messing with number order</div>
+            </div>
+            <a href="../index.html"><button>index</button></a>
+            <a href="affichage.html"><button>affichage</button></a>
         </div>
 
         <footer>

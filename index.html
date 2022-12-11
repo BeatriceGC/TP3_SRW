@@ -8,8 +8,12 @@
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" rel="stylesheet" type="text/css">
 
         <link href="css/styles.css" rel="stylesheet" type="text/css" />
+
+        <script type="text/javascript" src="js/complexity.js"></script>
+        <script type="text/javascript" src="js/JSONload.js"></script>
+
         <script type="text/javascript" src="js/main.js"></script>
-    </head>
+  </head>
 
     <body>
         <header id="header">
@@ -17,16 +21,31 @@
             <p>Bienvenue sur cette application sécurisée !<br>Détendez-vous et profitez d'une connexion en toute sécurité</p>
         </header>
 
-        <div id="myForm">
-            <div id="inputs">
-                <span>Identifiant :</span>
-                <input type="email" name="email" id="email" placeholder="ID" />
-                <span>Mot de passe :</span>
-                <input type="password" name="email" id="password" placeholder="Password" />
-            </div>
-            <button id="validate" onclick="" >Valider</button>
-        </div>
+        <div id="wrapper">
+            <form id="myForm" name="myForm" onsubmit="return signUp()" method="post">
+                <div class="inputs">
+                    <span>Identifiant :</span>
+                    <input type="email" name="email" id="email" placeholder="enter your e-mail" />
+                </div>
+                <div id="error_id">Cet utilisateur existe déjà, WTF</div>
+                <div class="inputs">
+                    <span>Mot de passe :</span>
+                    <input type="password" maxlength="12" name="password" id="password" placeholder="enter your password" />
+                </div>
 
+                <div id="complexity">
+                    <div></div>
+                    <div>Complexité : <span id="complexity_span"></span></div>
+                    <div id="complexity_div"></div>
+                </div>
+
+                <input id="validate" type="submit" value="Se Connecter">
+            </form>
+            <button id="switch" onclick="switchMode()">Envie de <span id="switch_span">s'inscire</span> ? Cliquez moi !</button>
+            <a href="html/admin.html"><button>Admin</button></a>
+            <a href="html/affichage.html"><button>Affichage</button></a>
+
+        </div>
         <footer>
             <div></div>
             <div>Hadrien BELLEVILLE - <a href="https://www.linkedin.com/in/b%C3%A9atrice-garcia-cegarra-bb6a841a2/">Béatrice GARCIA CEGARRA</a></div>

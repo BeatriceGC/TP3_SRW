@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dataSource name="HSQLDB (Local)">
-  <database-model serializer="dbm" dbms="HSQLDB" family-id="HSQLDB" format-version="4.40">
+  <database-model serializer="dbm" dbms="HSQLDB" family-id="HSQLDB" format-version="4.45">
     <root id="1">
       <ServerVersion>2.7.0</ServerVersion>
     </root>
@@ -16,33 +16,33 @@
     <table id="7" parent="4" name="RESIDENT"/>
     <table id="8" parent="4" name="USER"/>
     <column id="9" parent="6" name="NAME">
-      <DataType>VARCHAR(60)|12s</DataType>
+      <DasType>VARCHAR(60)|12s</DasType>
       <Position>1</Position>
     </column>
     <column id="10" parent="6" name="FIRSTNAME">
-      <DataType>VARCHAR(60)|12s</DataType>
+      <DasType>VARCHAR(60)|12s</DasType>
       <Position>2</Position>
     </column>
     <column id="11" parent="7" name="NAME">
-      <DataType>VARCHAR(60)|12s</DataType>
+      <DasType>VARCHAR(60)|12s</DasType>
       <Position>1</Position>
     </column>
     <column id="12" parent="7" name="FIRSTNAME">
-      <DataType>VARCHAR(60)|12s</DataType>
+      <DasType>VARCHAR(60)|12s</DasType>
       <Position>2</Position>
     </column>
     <column id="13" parent="8" name="NAME">
-      <DataType>VARCHAR(60)|12s</DataType>
+      <DasType>VARCHAR(60)|12s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
     <column id="14" parent="8" name="MDP">
-      <DataType>VARCHAR(16)|12s</DataType>
+      <DasType>VARCHAR(16)|12s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
     </column>
     <column id="15" parent="8" name="ROLE">
-      <DataType>VARCHAR(10)|12s</DataType>
+      <DasType>VARCHAR(10)|12s</DasType>
       <NotNull>1</NotNull>
       <Position>3</Position>
     </column>

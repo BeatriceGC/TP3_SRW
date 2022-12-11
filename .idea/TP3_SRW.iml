@@ -8,5 +8,8 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="@types/filesystem" level="application" />
+    <orderEntry type="library" name="@types/fs-readfile-promise" level="application" />
+    <orderEntry type="library" name="@types/requirejs" level="application" />
   </component>
 </module>
