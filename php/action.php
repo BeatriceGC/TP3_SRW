@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <title>Session</title>
     <link href="../css/styles.css" rel="stylesheet" type="text/css" />
-    <script type="text/javascript" src="../js/main.js"></script>
+    <script type="text/javascript" src="../js/mainIndex.js"></script>
 </head>
 
 
