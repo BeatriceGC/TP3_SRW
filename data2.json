@@ -1,8 +1,1 @@
-[
-  {
-    "name": "jane",
-    "email": "janedoe@example.com",
-    "password": "AZer28!!",
-    "role" : "admin"
-  }
-]
+[{"name":"jane","email":"janedoe@example.com","password":"AZer28!!","role":"admin"}]
