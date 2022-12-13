@@ -3,6 +3,12 @@
     "name": "jane",
     "email": "janedoe@example.com",
     "password": "AZer28!!",
-    "role" : "admin"
+    "role": "admin"
+  },
+  {
+    "name": "pouet",
+    "email": "hadrien@example.com",
+    "password": "AZer28!!",
+    "role": "none"
   }
 ]
