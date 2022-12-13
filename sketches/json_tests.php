@@ -1,50 +1,44 @@
-<!--Pour écrire dans un fichier JSON en PHP, vous pouvez utiliser la fonction
-json_encode pour encoder les données dans un format JSON,
-puis la fonction file_put_contents pour enregistrer les données dans un fichier sur le serveur.
-Voici un exemple de code qui montre comment effectuer ces étapes : -->
 <?php
-// Définir les données à écrire dans le fichier JSON
-$data = array(
-  "nom" => "John Doe",
-  "email" => "johndoe@example.com",
-  "age" => 35
-);
+$password = "hello";
+// On utilise l'algorithme PASSWORD_BCRYPT pour crypter le mot de passe
+$passwordHash = password_hash($password, PASSWORD_BCRYPT);
 
-// Encoder les données en format JSON
-$jsonData = json_encode($data);
+if (password_verify($password, $passwordHash)) {
+    // Le mot de passe est correct
+} else {
+    // Le mot de passe est incorrect
+}
 
-// Définir le nom du fichier où les données seront enregistrées
-$fileName = "data.json";
+// Génération d'un sel aléatoire
+$salt = bin2hex(random_bytes(16));
 
-// Écrire les données dans le fichier
-file_put_contents($fileName, $jsonData);
+// Concaténation du sel et du mot de passe
+$saltedPassword = $salt . $password;
 
-?>
+// Hashage du mot de passe avec l'algorithme SHA-256
+$passwordHash = hash_hmac('sha256', $saltedPassword, $salt);
 
-<!--Pour lire les données d'un fichier JSON en PHP,
-vous pouvez utiliser la fonction file_get_contents pour lire
-le contenu du fichier en tant que chaîne de caractères,
-puis la fonction json_decode pour décoder les données
-de la chaîne JSON en un objet ou un tableau PHP.
-Voici un exemple de code qui montre comment effectuer ces étapes :-->
-<?php
-// Définir le nom du fichier à lire
-$fileName = "data.json";
+// Génération d'une clef secrète aléatoire
+$secretKey = random_bytes(32);
 
-// Lire le contenu du fichier en tant que chaîne de caractères
-$jsonData = file_get_contents($fileName);
+// Calcul du hash du mot de passe en utilisant la clef secrète comme "grain de sel"
+$passwordHash = hash_hmac('sha256', $password, $secretKey);
 
-// Décoder les données JSON en un objet ou un tableau PHP
-$data = json_decode($jsonData);
+// Génère un sel aléatoire de 16 octets (128 bits)
+$salt = random_bytes(16);
 
-// Afficher les données
-echo $data["nom"] . "<br />";
-echo $data["email"] . "<br />";
-echo $data["age"] . "<br />";
-?>
 
-<!--Vous pouvez également utiliser la fonction file_get_contents
-avec l'option FILE_USE_INCLUDE_PATH pour lire un fichier JSON à
-partir de l'emplacement actuel du script PHP. Cela peut être utile
-si vous souhaitez lire un fichier JSON à partir d'un emplacement
-relatif à votre script PHP, plutôt que de spécifier un chemin d'accès absolu. -->
+$password = 'mypassword';
+$salt = 'mysalt';
+
+// Hash the password using sha-256 and the salt
+$hashed_password = hash_pbkdf2('sha256', $password, $salt, 10000, 32);
+
+// Compare the hashed password to the stored password
+if ($hashed_password === $stored_password) {
+    // The passwords match
+    echo "The password is correct!";
+} else {
+    // The passwords do not match
+    echo "The password is incorrect!";
+}

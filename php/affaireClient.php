@@ -64,7 +64,7 @@
 
         <a href="../index.html"><button>Index</button></a>
         <a href="admin.php"><button>admin</button></a>
-        <a href="residentielClient.html"><button>Residentiel Client</button></a>
+        <a href="residentielClient.php"><button>Residentiel Client</button></a>
 
         <footer>
             <div></div>

@@ -181,7 +181,7 @@ if(!isset($_SESSION['login'])){
         </div>
 
         <a href="../index.html"><button>Index</button></a>
-        <a href="residentielClient.html"><button>ResidentielClient</button></a>
+        <a href="residentielClient.php"><button>ResidentielClient</button></a>
         <a href="affaireClient.php"><button>AffaireClient</button></a>
 
         <footer>
