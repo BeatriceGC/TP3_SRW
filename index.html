@@ -23,11 +23,22 @@
 
         <div id="wrapper">
             <form id="myForm" name="myForm" action="action.php" method="post">
+                <div class="inputs" id="divName">
+                    <span>Prénom NOM :</span>
+                    <input type="text" name="text" id="name" placeholder="Firstname LASTNAME" />
+                </div>
+
                 <div class="inputs">
                     <span>Identifiant :</span>
                     <input type="email" name="email" id="email" placeholder="enter your e-mail" />
                 </div>
+
                 <div class="errorUser" id="error_id">Cet utilisateur existe déjà, WTF</div>
+
+                <div id="radioButtons">
+                    <span>CLient résidentiel : </span> <input type="radio" id="residentielClient" name="typeClient" value="residentiel" checked>
+                    <span>CLient d'affaires : </span><input type="radio" id="affairesClient" name="typeClient" value="affaires">
+                </div>
 
                 <div class="inputs">
                     <span>Mot de passe :</span>

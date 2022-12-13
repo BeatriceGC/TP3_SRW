@@ -47,6 +47,7 @@ body #wrapper {
     box-shadow: 3px 3px 3px black;
 
     overflow-y: hidden;
+    scrollbar-color: saddlebrown orange;
 }
 
 body #myForm .inputs {
@@ -60,7 +61,7 @@ body #myForm .inputs input, body #myForm .inputs span {
 }
 body #myForm .inputs span {
     font-variant: small-caps;
-    font-size: 1.4em;
+    font-size: 1.3em;
     text-align: left;
 }
 
@@ -70,7 +71,7 @@ body #myForm .inputs input {
     font-size: 1em;
 }
 
-body #myForm #confirm_password{
+body #myForm #confirm_password, body #myForm #divName {
     display: none;
 }
 
@@ -128,6 +129,16 @@ body #myForm #validate:active, body #switch:active, body #myForm input:active, b
 }
 
 
+body #wrapper #radioButtons {
+    display: none;
+    text-align: right;
+    font-size: 1.2em;
+    grid-template: repeat(2, 1fr) / 10fr 1fr;
+}
+
+body #wrapper #radioButtons input, body #wrapper #radioButtons span {
+    margin: 5px 0;
+}
 
 
 
