@@ -133,7 +133,7 @@ body #wrapper #radioButtons {
     display: none;
     text-align: right;
     font-size: 1.2em;
-    grid-template: repeat(2, 1fr) / 10fr 1fr;
+    grid-template: repeat(3, 1fr) / 10fr 1fr;
 }
 
 body #wrapper #radioButtons input, body #wrapper #radioButtons span {
