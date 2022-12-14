@@ -8,5 +8,15 @@
     "salt": "ceciestleselpourlemotdepasse",
     "iteration": 1000,
     "name": "valere"
+  },
+  {
+    "salt": "ceciestleselpourlemotdepasse",
+    "iteration": 741,
+    "name": "hadrien"
+  },
+  {
+    "salt": "365a0c7695a8f94c87434c1b5cf1cf81",
+    "iteration": 380,
+    "name": "emma"
   }
 ]

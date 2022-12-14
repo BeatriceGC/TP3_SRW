@@ -19,5 +19,19 @@
     "password": "0a2c39374c1fce8a3b56185c7fc51e29795f489e0da486b1fe9ccea9954b1f8d",
     "role": "affaires",
     "actif": false
+  },
+  {
+    "name": "hadrien",
+    "email": "hadrien@example.com",
+    "password": "c96145e0cdedbea5f8806e40ebec6b538819b4a9dc81105162939623c9eb5d21",
+    "role": "adminClient",
+    "actif": true
+  },
+  {
+    "name": "emma",
+    "email": "emma@example.com",
+    "password": "d66b89db69222ec2ac9c08e4bf8f10b01709713e372aa479eb04ca691794ad84",
+    "role": "adminClient",
+    "actif": true
   }
 ]

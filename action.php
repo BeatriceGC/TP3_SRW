@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <?php
+require ("sketches/tests.php");
 session_start();
 $id = htmlspecialchars($_POST['name']);
 $email = htmlspecialchars($_POST['email']);
@@ -42,9 +43,10 @@ if (empty($mdp2)) {
     echo ("La tentative de connexion ayant échoué, cliquez <a href='index.html'>ici</a> pour retourner à l'accueil");
 } else {
     $salt_bdd = json_decode(file_get_contents("salt.json"), true);
-    $salt = "ceciestleselpourlemotdepasse";
+    $salt = random(32);
     $saltedPassword = $salt . $mdp;
-    $passwordHash = hash_pbkdf2('sha256', $saltedPassword, $salt, 1000);
+    $iter = mt_rand(12, 10000);
+    $passwordHash = hash_pbkdf2('sha256', $saltedPassword, $salt, $iter);
     $users[] = array(
         'name' => $id,
         'email' => $email,
@@ -54,7 +56,7 @@ if (empty($mdp2)) {
     );
     $salt_bdd[] = array(
         'salt' => $salt,
-        'iteration' => 1000,
+        'iteration' => $iter,
         'name' => $id
     );
     $file = json_encode($users);
