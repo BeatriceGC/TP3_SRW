@@ -1,5 +1,12 @@
 <!DOCTYPE html>
 
+<?php
+session_start();
+if(!isset($_SESSION['login'])){
+    header("Location:../index.html");
+}
+?>
+
 <html lang="fr">
     <head>
         <meta charset="UTF-8">
@@ -14,14 +21,17 @@
 
     <body>
         <header id="header">
-            <h1>CLIENT D'AFFAIRES :  <span id="SessionID">Michel LADEMO</span></h1>
+            <h1>CLIENT D'AFFAIRES :  <span id="SessionID"><?php
+                    echo $_SESSION['login'] . " ";
+                    echo $_SESSION['role'];
+                    ?></span></h1>
             <p>WAOUH, votre liste de clients préférés en temps réel prête à l'emploi !</p>
         </header>
 
         <div id="options">
             <button onclick="changeWrapper(0)">Affichage des Clients <br>d'Affaires</button>
             <button onclick="changeWrapper(1)">Modification du mot de passe</button>
-            <button>Déconnexion</button>
+            <a href="deconnexion.php"><button>Déconnexion</button></a>
         </div>
 
         <div class="wrapper" id="wrapAffaire">

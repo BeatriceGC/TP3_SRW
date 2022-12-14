@@ -1,23 +1,16 @@
 [
   {
-    "name": "Paul",
-    "email": "paul@example.com",
-    "password": "368809a09e69a6302d3b2e7d78319245300a10f7ca2d133e655414667575a0c5",
-    "role": "adminClient",
-    "actif": false
-  },
-  {
-    "name": "jb",
-    "email": "jblemeilleur@example.com",
+    "name": "paul",
+    "email": "paul@exampl.com",
     "password": "83843446fd098779446f7946e09b4ca1e5d51687d64a03e17403002e7eaedb66",
     "role": "adminClient",
     "actif": true
   },
   {
-    "name": "olivia",
-    "email": "olivia@example.com",
-    "password": "9a9f748472c607a1d57f7082aecffdff3398f0ebc08e5db2e1d86dccdd1d4820",
-    "role": "adminClient",
-    "actif": false
+    "name": "jb",
+    "email": "jb@example.com",
+    "password": "83843446fd098779446f7946e09b4ca1e5d51687d64a03e17403002e7eaedb66",
+    "role": "affairesClient",
+    "actif": true
   }
 ]

@@ -3,10 +3,6 @@
 session_start();
 if(!isset($_SESSION['login'])){
     header("Location:../index.html");
-} else {
-//    session_destroy();
-//    header('Location:../index.html');
-//    exit;
 }
 ?>
 
@@ -26,7 +22,10 @@ if(!isset($_SESSION['login'])){
 
     <body>
         <header id="header">
-            <h1>ADMINISTRATEUR :  <span id="SessionID">Bill BOCQUET</span></h1>
+            <h1>ADMINISTRATEUR :  <span id="SessionID"><?php
+                    echo $_SESSION['login'] . " ";
+                    echo $_SESSION['role'];
+            ?></span></h1>
             <p>Administrez votre site Web et gérez ses options de sécurité de façon super secrète</p>
         </header>
 
@@ -35,7 +34,7 @@ if(!isset($_SESSION['login'])){
             <button onclick="changeWrapper(1)">Affichage des Clients d'Affaires</button>
             <button onclick="changeWrapper(0)">Modification des paramètres de sécurité</button>
             <button onclick="changeWrapper(3)">Modification du mot de passe</button>
-            <button>Déconnexion</button>
+            <a href="deconnexion.php"><button>Déconnexion</button></a>
         </div>
 
         <div class="wrapper" id="wrapReglages">

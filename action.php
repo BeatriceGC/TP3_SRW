@@ -17,40 +17,28 @@ if (empty($mdp2)) {
     foreach ($users as $usr) {
         // Test des identifiants dans la bdd
         if ($usr->email == $email) {
-            $salt_bdd = json_decode(file_get_contents("salt.json"), true);
-            foreach($salt_bdd as $slt){
-                // Récupération du sel lié au compte
-                if ($slt->name == $id) {
-                    $salt = $slt;
-                }
-            }
-            if (!isset($salt)) $salt = "ceciestleselpourlemotdepasse";
-//            $pre_cipher = $salt->salt . $mdp;
-            $cipher = hash_hmac('sha256', $mdp, $salt->salt);
-            if ($usr->password === $cipher and $usr->actif) {
+            $salt="ceciestleselpourlemotdepasse";
+            $saltedPassword = $salt . $mdp;
+            $passwordHash = hash_hmac('sha256', $saltedPassword, $salt);
+            if ($usr->password === $passwordHash) {
                 // la connexion est réussie
                 $_SESSION['login'] = $usr->name;
                 $_SESSION['role'] = $usr->role;
-                if ($usr->role == "admin") {
+                echo $usr->name;
+                if ($_SESSION['role'] == "adminClient") {
                     header("Location:php/admin.php");
-                } else if ($usr->role = "affaire") {
+                } else if ($_SESSION['role'] = "affairesClient") {
                     header("Location:php/affaireClient.php");
-                } else if ($usr->role = "resident") {
+                } else if ($_SESSION['role'] = "residentielClient") {
                     header("Location:php/residentielClient.php");
-                }
+                } else header("Location:php/deconnexion.php");
             }
         }
     }
-    // Meaning no account is corresponding.
-    header("Location:index.html");
-    exit;
 } else {
-    // Utilisateur veut s'inscrire
-    // création du sel
-    $salt_bdd = json_decode(file_get_contents("salt.json"), true);
     $salt = "ceciestleselpourlemotdepasse";
-//    $saltedPassword = $salt . $mdp;
-    $passwordHash = hash_hmac('sha256', $mdp, $salt);
+    $saltedPassword = $salt . $mdp;
+    $passwordHash = hash_hmac('sha256', $saltedPassword, $salt);
     $users[] = array(
         'name' => $id,
         'email' => $email,
@@ -58,13 +46,8 @@ if (empty($mdp2)) {
         'role' => $role,
         'actif' => false
     );
-    $salt_bdd[] = array (
-        'salt' => $salt,
-        'name' => $id
-    );
     $file = json_encode($users);
     file_put_contents('data.json', $file);
-    file_put_contents("salt.json", json_encode($salt_bdd));
     header("Location:index.html");
 }
 
