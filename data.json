@@ -1,36 +1,15 @@
 [
   {
-    "name": "paul",
-    "email": "paul@exampl.com",
-    "password": "83843446fd098779446f7946e09b4ca1e5d51687d64a03e17403002e7eaedb66",
+    "name": "emma",
+    "email": "emma@example.com",
+    "password": "3e25398d06d7db3f54c93633d3695b294e1bc7a04a0eae6c26e08309",
     "role": "adminClient",
     "actif": true
   },
   {
     "name": "poline",
     "email": "poline@example.com",
-    "password": "0a2c39374c1fce8a3b56185c7fc51e29795f489e0da486b1fe9ccea9954b1f8d",
-    "role": "adminClient",
-    "actif": true
-  },
-  {
-    "name": "valere",
-    "email": "valere@example.com",
-    "password": "0a2c39374c1fce8a3b56185c7fc51e29795f489e0da486b1fe9ccea9954b1f8d",
-    "role": "affaires",
-    "actif": false
-  },
-  {
-    "name": "hadrien",
-    "email": "hadrien@example.com",
-    "password": "c96145e0cdedbea5f8806e40ebec6b538819b4a9dc81105162939623c9eb5d21",
-    "role": "adminClient",
-    "actif": true
-  },
-  {
-    "name": "emma",
-    "email": "emma@example.com",
-    "password": "d66b89db69222ec2ac9c08e4bf8f10b01709713e372aa479eb04ca691794ad84",
+    "password": "2800308b23c93ab198254e0d11afcb5e",
     "role": "adminClient",
     "actif": true
   }

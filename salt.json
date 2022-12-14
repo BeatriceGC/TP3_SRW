@@ -1,22 +1,14 @@
 [
   {
-    "salt": "ceciestleselpourlemotdepasse",
-    "iteration": 1000,
-    "name": "poline"
-  },
-  {
-    "salt": "ceciestleselpourlemotdepasse",
-    "iteration": 1000,
-    "name": "valere"
-  },
-  {
-    "salt": "ceciestleselpourlemotdepasse",
-    "iteration": 741,
-    "name": "hadrien"
-  },
-  {
-    "salt": "365a0c7695a8f94c87434c1b5cf1cf81",
-    "iteration": 380,
+    "hash": "haval224,4",
+    "salt": "e7d368b34d867173b7f342f49b0283bd",
+    "iteration": 3250,
     "name": "emma"
+  },
+  {
+    "hash": "haval128,5",
+    "salt": "b7adf10502bc4325acf1dfb3598c886b",
+    "iteration": 2807,
+    "name": "poline"
   }
 ]

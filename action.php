@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <?php
-require ("sketches/tests.php");
+require("php/fonctions.php");
 session_start();
 $id = htmlspecialchars($_POST['name']);
 $email = htmlspecialchars($_POST['email']);
@@ -10,6 +10,8 @@ $role = htmlspecialchars($_POST['typeClient']);
 
 $file = file_get_contents("data.json");
 $users = json_decode($file);
+
+$log = json_decode(file_get_contents("log.json"));
 
 if (empty($mdp2)) {
     // Utilisateur veut se connecter
@@ -21,15 +23,27 @@ if (empty($mdp2)) {
                 if ($salt->name == $usr->name){
                     $slt = $salt->salt;
                     $iter = $salt->iteration;
+                    $hash = $salt->hash;
                 }
             }
             $saltedPassword = $slt . $mdp;
-            $passwordHash = hash_pbkdf2('sha256', $saltedPassword, $slt, $iter);
+            $passwordHash = hash_pbkdf2($hash, $saltedPassword, $slt, $iter);
             if ($usr->password === $passwordHash and $usr->actif) {
                 // la connexion est réussie
                 $_SESSION['login'] = $usr->name;
                 $_SESSION['role'] = $usr->role;
-                echo $usr->name;
+
+                // Enregistrement de l'utilisateur dans les logs
+                $ip = getIp();
+                $date = date('d-m-y h:i:s');
+                $log[] = array(
+                    'address' => $ip,
+                    'time' => $date,
+                    'account' => $email,
+                );
+                file_put_contents('log.json', json_encode($log));
+
+                // Redirection vers la session attribuée
                 if ($_SESSION['role'] == "adminClient") {
                     header("Location:php/admin.php");
                 } else if ($_SESSION['role'] = "affairesClient") {
@@ -46,7 +60,8 @@ if (empty($mdp2)) {
     $salt = random(32);
     $saltedPassword = $salt . $mdp;
     $iter = mt_rand(12, 10000);
-    $passwordHash = hash_pbkdf2('sha256', $saltedPassword, $salt, $iter);
+    $hash = get_algo();
+    $passwordHash = hash_pbkdf2($hash, $saltedPassword, $salt, $iter);
     $users[] = array(
         'name' => $id,
         'email' => $email,
@@ -55,6 +70,7 @@ if (empty($mdp2)) {
         'actif' => false
     );
     $salt_bdd[] = array(
+        'hash' => $hash,
         'salt' => $salt,
         'iteration' => $iter,
         'name' => $id
