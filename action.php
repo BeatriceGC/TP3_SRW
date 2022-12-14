@@ -8,9 +8,8 @@ $mdp = htmlspecialchars($_POST['password']);
 $mdp2 = htmlspecialchars($_POST['password2']);
 $role = htmlspecialchars($_POST['typeClient']);
 
-$file = file_get_contents("data.json");
-$users = json_decode($file);
-
+$users = json_decode(file_get_contents("data.json"));
+$salt_bdd = json_decode(file_get_contents("salt.json"));
 $log = json_decode(file_get_contents("log.json"));
 
 if (empty($mdp2)) {
@@ -18,7 +17,6 @@ if (empty($mdp2)) {
     foreach ($users as $usr) {
         // Test des identifiants dans la bdd
         if ($usr->email == $email) {
-            $salt_bdd = json_decode(file_get_contents("salt.json"));
             foreach ($salt_bdd as $salt) {
                 if ($salt->name == $usr->name){
                     $slt = $salt->salt;
@@ -33,13 +31,14 @@ if (empty($mdp2)) {
                 $_SESSION['login'] = $usr->name;
                 $_SESSION['role'] = $usr->role;
 
-                // Enregistrement de l'utilisateur dans les logs
+                // Enregistrement de la connexion dans les logs
                 $ip = getIp();
                 $date = date('d-m-y h:i:s');
                 $log[] = array(
                     'address' => $ip,
                     'time' => $date,
                     'account' => $email,
+                    'action' => 'login'
                 );
                 file_put_contents('log.json', json_encode($log));
 
@@ -55,13 +54,16 @@ if (empty($mdp2)) {
         }
     }
     echo ("La tentative de connexion ayant échoué, cliquez <a href='index.html'>ici</a> pour retourner à l'accueil");
+
 } else {
-    $salt_bdd = json_decode(file_get_contents("salt.json"), true);
     $salt = random(32);
-    $saltedPassword = $salt . $mdp;
     $iter = mt_rand(12, 10000);
     $hash = get_algo();
+
+    $saltedPassword = $salt . $mdp;
     $passwordHash = hash_pbkdf2($hash, $saltedPassword, $salt, $iter);
+
+    // Enregistrement de l'utilisateur
     $users[] = array(
         'name' => $id,
         'email' => $email,
@@ -69,12 +71,26 @@ if (empty($mdp2)) {
         'role' => $role,
         'actif' => false
     );
+
+    // Enregistrement du sel hash et iter de l'utilisateur
     $salt_bdd[] = array(
         'hash' => $hash,
         'salt' => $salt,
         'iteration' => $iter,
         'name' => $id
     );
+
+    // Enregistrement de la création de compte dans les logs
+    $ip = getIp();
+    $date = date('d-m-y h:i:s');
+    $log[] = array(
+        'address' => $ip,
+        'time' => $date,
+        'account' => $email,
+        'action' => 'sign up'
+    );
+
+    file_put_contents('log.json', json_encode($log));
     $file = json_encode($users);
     file_put_contents('data.json', $file);
     file_put_contents('salt.json', json_encode($salt_bdd));

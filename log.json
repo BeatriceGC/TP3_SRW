@@ -1,12 +1,26 @@
 [
   {
     "address": "127.0.0.1",
-    "time": "14-12-22 09:22:55",
-    "account": "emma@example.com"
+    "time": "14-12-22 09:50:24",
+    "account": "paul.smacque000@gmail.com",
+    "action": "sign up"
   },
   {
     "address": "127.0.0.1",
-    "time": "14-12-22 09:25:33",
-    "account": "poline@example.com"
+    "time": "14-12-22 09:51:38",
+    "account": "pauline_bio@example.com",
+    "action": "sign up"
+  },
+  {
+    "address": "127.0.0.1",
+    "time": "14-12-22 09:53:39",
+    "account": "emma@hotmail.com",
+    "action": "sign up"
+  },
+  {
+    "address": "127.0.0.1",
+    "time": "14-12-22 10:01:11",
+    "account": "hbellevill@gmail.com",
+    "action": "sign up"
   }
 ]

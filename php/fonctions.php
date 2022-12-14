@@ -24,5 +24,9 @@ function getIp()
 
 function get_algo(): string
 {
-    return hash_algos()[mt_rand(0, 59)];
+    // Suppression des algorithmes de hashes non compatibles
+    do $rand = mt_rand(0, 59);
+    while(($rand <= 44 and $rand >= 29));
+
+    return hash_algos()[$rand];
 }
