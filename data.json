@@ -1,30 +1,9 @@
 [
   {
-    "name": "Paul Smacque",
-    "email": "paul.smacque000@gmail.com",
-    "password": "2bcb49e9e0236ff1797d0cde48ee88caa7c2c8f52751273fd25648670966ce7e",
-    "role": "affaires",
-    "actif": false
-  },
-  {
-    "name": "Pauline",
-    "email": "pauline_bio@example.com",
-    "password": "4001ad6f104979d02cca1f5be2c3a9f1daf467eb1f65b240cb501392",
+    "name": "hadrien",
+    "email": "hadrien@example.com",
+    "password": "0d01f81d7c490517fbf87de8c94f8af9",
     "role": "adminClient",
-    "actif": false
-  },
-  {
-    "name": "Emma",
-    "email": "emma@hotmail.com",
-    "password": "b6f6864d0288ef8ca74eb54d86ae06c0",
-    "role": "residentiel",
-    "actif": false
-  },
-  {
-    "name": "Hadrien B",
-    "email": "hbellevill@gmail.com",
-    "password": "c6cee6f3810dc603578720a19d90cb8a50807982",
-    "role": "adminClient",
-    "actif": false
+    "actif": true
   }
 ]

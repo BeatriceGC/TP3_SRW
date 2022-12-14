@@ -12,6 +12,9 @@ $users = json_decode(file_get_contents("data.json"));
 $salt_bdd = json_decode(file_get_contents("salt.json"));
 $log = json_decode(file_get_contents("log.json"));
 
+$ip = getIp();
+$date = date('d-m-y h:i:s');
+
 if (empty($mdp2)) {
     // Utilisateur veut se connecter
     foreach ($users as $usr) {
@@ -32,13 +35,12 @@ if (empty($mdp2)) {
                 $_SESSION['role'] = $usr->role;
 
                 // Enregistrement de la connexion dans les logs
-                $ip = getIp();
-                $date = date('d-m-y h:i:s');
                 $log[] = array(
                     'address' => $ip,
                     'time' => $date,
                     'account' => $email,
-                    'action' => 'login'
+                    'action' => 'login',
+                    'state' => true
                 );
                 file_put_contents('log.json', json_encode($log));
 
@@ -53,8 +55,20 @@ if (empty($mdp2)) {
             }
         }
     }
-    echo ("La tentative de connexion ayant échoué, cliquez <a href='index.html'>ici</a> pour retourner à l'accueil");
-
+    // Si la connexion échoue
+    if (!isset($_SESSION['login'])) {
+        // Enregistrement de la tentative de connexion
+        $log[] = array(
+            'address' => $ip,
+            'time' => $date,
+            'account' => $email,
+            'action' => 'login',
+            'state' => false
+        );
+        file_put_contents('log.json', json_encode($log));
+        echo ("La tentative de connexion ayant échoué, cliquez <a href='index.html'>ici</a> pour retourner à l'accueil");
+        header("Location:index.html");
+    }
 } else {
     $salt = random(32);
     $iter = mt_rand(12, 10000);
@@ -81,13 +95,12 @@ if (empty($mdp2)) {
     );
 
     // Enregistrement de la création de compte dans les logs
-    $ip = getIp();
-    $date = date('d-m-y h:i:s');
     $log[] = array(
         'address' => $ip,
         'time' => $date,
         'account' => $email,
-        'action' => 'sign up'
+        'action' => 'signup',
+        'state' => true
     );
 
     file_put_contents('log.json', json_encode($log));
