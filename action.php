@@ -1,6 +1,4 @@
-<!DOCTYPE HTML>
-<html lang="fr">
-<header></header>
+<!DOCTYPE html>
 <?php
 session_start();
 $id = htmlspecialchars($_POST['name']);
@@ -17,10 +15,16 @@ if (empty($mdp2)) {
     foreach ($users as $usr) {
         // Test des identifiants dans la bdd
         if ($usr->email == $email) {
-            $salt="ceciestleselpourlemotdepasse";
-            $saltedPassword = $salt . $mdp;
-            $passwordHash = hash_hmac('sha256', $saltedPassword, $salt);
-            if ($usr->password === $passwordHash) {
+            $salt_bdd = json_decode(file_get_contents("salt.json"));
+            foreach ($salt_bdd as $salt) {
+                if ($salt->name == $usr->name){
+                    $slt = $salt->salt;
+                    $iter = $salt->iteration;
+                }
+            }
+            $saltedPassword = $slt . $mdp;
+            $passwordHash = hash_pbkdf2('sha256', $saltedPassword, $slt, $iter);
+            if ($usr->password === $passwordHash and $usr->actif) {
                 // la connexion est réussie
                 $_SESSION['login'] = $usr->name;
                 $_SESSION['role'] = $usr->role;
@@ -35,10 +39,12 @@ if (empty($mdp2)) {
             }
         }
     }
+    echo ("La tentative de connexion ayant échoué, cliquez <a href='index.html'>ici</a> pour retourner à l'accueil");
 } else {
+    $salt_bdd = json_decode(file_get_contents("salt.json"), true);
     $salt = "ceciestleselpourlemotdepasse";
     $saltedPassword = $salt . $mdp;
-    $passwordHash = hash_hmac('sha256', $saltedPassword, $salt);
+    $passwordHash = hash_pbkdf2('sha256', $saltedPassword, $salt, 1000);
     $users[] = array(
         'name' => $id,
         'email' => $email,
@@ -46,11 +52,13 @@ if (empty($mdp2)) {
         'role' => $role,
         'actif' => false
     );
+    $salt_bdd[] = array(
+        'salt' => $salt,
+        'iteration' => 1000,
+        'name' => $id
+    );
     $file = json_encode($users);
     file_put_contents('data.json', $file);
+    file_put_contents('salt.json', json_encode($salt_bdd));
     header("Location:index.html");
 }
-
-?>
-<body></body>
-</html>

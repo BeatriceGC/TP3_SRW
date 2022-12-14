@@ -1,6 +1,12 @@
 [
   {
     "salt": "ceciestleselpourlemotdepasse",
-    "name": "paul"
+    "iteration": 1000,
+    "name": "poline"
+  },
+  {
+    "salt": "ceciestleselpourlemotdepasse",
+    "iteration": 1000,
+    "name": "valere"
   }
 ]

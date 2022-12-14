@@ -7,10 +7,17 @@
     "actif": true
   },
   {
-    "name": "jb",
-    "email": "jb@example.com",
-    "password": "83843446fd098779446f7946e09b4ca1e5d51687d64a03e17403002e7eaedb66",
-    "role": "affairesClient",
+    "name": "poline",
+    "email": "poline@example.com",
+    "password": "0a2c39374c1fce8a3b56185c7fc51e29795f489e0da486b1fe9ccea9954b1f8d",
+    "role": "adminClient",
     "actif": true
+  },
+  {
+    "name": "valere",
+    "email": "valere@example.com",
+    "password": "0a2c39374c1fce8a3b56185c7fc51e29795f489e0da486b1fe9ccea9954b1f8d",
+    "role": "affaires",
+    "actif": false
   }
 ]
