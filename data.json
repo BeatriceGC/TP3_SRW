@@ -2,8 +2,22 @@
   {
     "name": "hadrien",
     "email": "hadrien@example.com",
-    "password": "0d01f81d7c490517fbf87de8c94f8af9",
+    "password": "ab7ad9f14198078c2a32403f6dfb6715",
     "role": "adminClient",
+    "actif": true
+  },
+  {
+    "name": "jb",
+    "email": "jb@example.com",
+    "password": "1bb4c7b337ab8936f1f8a415fd7669998baa634c",
+    "role": "adminClient",
+    "actif": true
+  },
+  {
+    "name": "pauline",
+    "email": "pauline@example.com",
+    "password": "8a8fc09a5d17a2a906365dbfad58232460ff3b86c9fbc53fd8712bd2d3d18287",
+    "role": "residentielClient",
     "actif": true
   }
 ]

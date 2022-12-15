@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <?php
 session_start();
-if(!isset($_SESSION['login'])){
+if(!isset($_SESSION['login']) or $_SESSION['role'] != "adminClient"){
+    session_destroy();
     header("Location:../index.html");
+    exit;
 }
 ?>
 
@@ -151,31 +153,32 @@ if(!isset($_SESSION['login'])){
 
         <div class="wrapper" id="wrapMdP">
             <div class="user">
-                <h2>Modification du Mot de Passe</h2>
+                <form id="myForm" name="myForm" action="action_changepass.php" method="post">
+                    <div class="inputs" id="divName">
+                        <label for="name">Ancien mot de passe :</label>
+                        <input type="password" name="old" maxlength="12" id="name" placeholder="Votre ancien mot de passe" />
+                    </div>
 
-                <div class="inputs">
-                    <span>Ancien Mot de passe :</span>
-                    <input type="password" name="last_password" maxlength="12" id="last_password" placeholder="enter your current password" />
-                </div>
-                <div class="errorUser" id="error_lastpassword">Le mot de passe est invalide, WTF</div>
+                    <div class="inputs">
+                        <label for="password">Nouveau mot de passe :</label>
+                        <input type="password" name="password" maxlength="12" id="password" placeholder="Entrez votre nouveau mot de passe" />
+                    </div>
 
-                <div class="inputs">
-                    <span>Nouveau mot de passe :</span>
-                    <input type="password" name="password" maxlength="12" id="password" placeholder="enter your new password" />
-                </div>
+                    <div class="inputs">
+                        <label for="password2">Confirmer le nouveau mot de passe :</label>
+                        <input type="password" name="password2" maxlength="12" id="password2" placeholder="Confirmer votre nouveau mot de passe" />
+                    </div>
 
-                <div class="inputs">
-                    <span>Confirmation nouveau Mot de passe :</span>
-                    <input type="password" name="confirm_password" maxlength="12" id="confirm_password" placeholder="confirm your new password" />
-                </div>
-                <div class="errorUser" id="error_password">Les mots de passe se dévisagent sans se reconnaitre :/</div>
+                    <div class="errorUser" id="error_password">Les mots de passe se dévisagent sans se reconnaitre :/</div>
 
-                <div id="complexity">
-                    <div></div>
-                    <div>Complexité : <span id="complexity_span"></span></div>
-                    <div id="complexity_div"></div>
-                </div>
-                <button id="checkMdP" onclick="changeMdP()">valider</button>
+                    <div id="complexity">
+                        <div></div>
+                        <div>Complexité : <span id="complexity_span"></span></div>
+                        <div id="complexity_div"></div>
+                    </div>
+
+                    <input id="validate" type="submit" value="Confirmer">
+                </form>
             </div>
         </div>
 
