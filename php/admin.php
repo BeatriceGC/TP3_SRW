@@ -156,17 +156,17 @@ if(!isset($_SESSION['login']) or $_SESSION['role'] != "adminClient"){
                 <form id="myForm" name="myForm" action="action_changepass.php" method="post">
                     <div class="inputs" id="divName">
                         <label for="name">Ancien mot de passe :</label>
-                        <input type="password" name="old" maxlength="12" id="name" placeholder="Votre ancien mot de passe" />
+                        <input type="password" name="old" maxlength="12" id="name" placeholder="Votre ancien mot de passe" required />
                     </div>
 
                     <div class="inputs">
                         <label for="password">Nouveau mot de passe :</label>
-                        <input type="password" name="password" maxlength="12" id="password" placeholder="Entrez votre nouveau mot de passe" />
+                        <input type="password" name="password" maxlength="12" id="password" placeholder="Entrez votre nouveau mot de passe" required />
                     </div>
 
                     <div class="inputs">
                         <label for="password2">Confirmer le nouveau mot de passe :</label>
-                        <input type="password" name="password2" maxlength="12" id="password2" placeholder="Confirmer votre nouveau mot de passe" />
+                        <input type="password" name="password2" maxlength="12" id="password2" placeholder="Confirmer votre nouveau mot de passe" required />
                     </div>
 
                     <div class="errorUser" id="error_password">Les mots de passe se dévisagent sans se reconnaitre :/</div>

@@ -11,9 +11,9 @@ $mdp2 = htmlspecialchars($_POST['password2']);
 $role = htmlspecialchars($_POST['typeClient']);
 
 // Récupération de la base de données
-$users = json_decode(file_get_contents("data.json"));
-$salt_bdd = json_decode(file_get_contents("salt.json"));
-$log = json_decode(file_get_contents("log.json"));
+$users = json_decode(file_get_contents("db/data.json"));
+$salt_bdd = json_decode(file_get_contents("db/salt.json"));
+$log = json_decode(file_get_contents("db/log.json"));
 
 // Récupération de l'IP et de la date pour les logs
 $ip = getIp();
@@ -98,9 +98,13 @@ if (empty($mdp2)) {
         'state' => true
     );
 
-    file_put_contents('log.json', json_encode($log));
+    file_put_contents('db/log.json', json_encode($log));
     $file = json_encode($users);
-    file_put_contents('data.json', $file);
-    file_put_contents('salt.json', json_encode($salt_bdd));
+    file_put_contents('db/data.json', $file);
+    file_put_contents('db/salt.json', json_encode($salt_bdd));
     header("Location:index.html");
 }
+//else {
+//    echo('Votre connexion à échoué plus de 5 fois. Vous allez devoir attendre avant de pouvoir continuer.\n');
+//    echo ("La tentative de connexion ayant échoué, cliquez <a href='index.html'>ici</a> pour retourner à l'accueil\n");
+//}

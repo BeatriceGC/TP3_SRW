@@ -36,8 +36,8 @@ function cipher_password(string $password, string $hash, string $salt, int $iter
 }
 
 function compare_password(string $name, string $clear_mdp) : bool {
-    $users = json_decode(file_get_contents("data.json"));
-    $salt_bdd = json_decode(file_get_contents("salt.json"));
+    $users = json_decode(file_get_contents("db/data.json"));
+    $salt_bdd = json_decode(file_get_contents("db/salt.json"));
     // Recherche de l'utilisateur $name dans la bdd
     for ($i = 0; $i < sizeof($users); $i++) {
         // Utilisateur trouvé

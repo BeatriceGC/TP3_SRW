@@ -10,11 +10,28 @@ if(!isset($_SESSION['login'])){
 $name = $_SESSION['login'];
 $old_mdp = htmlspecialchars($_POST['old']);
 $new_mdp = htmlspecialchars($_POST['password']);
+$conf_pass = htmlspecialchars($_POST['password2']);
+
+if ($new_mdp != $conf_pass) {
+    echo("Les mots de passe ne correspondent pas. Veuillez réessayer.\n");
+    switch ($_SESSION['role']){
+        case "adminClient":
+            echo("Cliquez " . " <a href='admin.php'>ICI</a>" . " pour revenir en arrière");
+            break;
+        case "affaireClient":
+            echo("Cliquez " . " <a href='affaireClient.php'>ICI</a>" . " pour revenir en arrière");
+            break;
+        case "residentielClient":
+            echo("Cliquez " . " <a href='residentielClient.php'>ICI</a>" . " pour revenir en arrière");
+            break;
+    }
+    exit;
+}
 
 // Récupération de la base de donnée
-$users = json_decode(file_get_contents("data.json"));
-$salt_bdd = json_decode(file_get_contents("salt.json"));
-$log = json_decode(file_get_contents("log.json"));
+$users = json_decode(file_get_contents("db/data.json"));
+$salt_bdd = json_decode(file_get_contents("db/salt.json"));
+$log = json_decode(file_get_contents("db/log.json"));
 
 // Récupération de l'IP et de la date pour les logs
 $ip = getIp();
@@ -47,7 +64,7 @@ for ($i = 0; $i < sizeof($users); $i++){
                     'role' => $_SESSION['role'],
                     'actif' => true
                 );
-                file_put_contents('data.json', json_encode($users));
+                file_put_contents('db/data.json', json_encode($users));
                 // Enregistrement du changement de mot de passe dans les logs
                 $log[] = array(
                     'address' => $ip,
@@ -56,7 +73,7 @@ for ($i = 0; $i < sizeof($users); $i++){
                     'action' => 'password change',
                     'state' => true
                 );
-                file_put_contents('log.json', json_encode($log));
+                file_put_contents('db/log.json', json_encode($log));
 
                 // Redirection vers la session attribuée
                 if ($_SESSION['role'] == "adminClient") {
@@ -75,7 +92,7 @@ for ($i = 0; $i < sizeof($users); $i++){
                     'action' => 'password change',
                     'state' => false
                 );
-                file_put_contents('log.json', json_encode($log));
+                file_put_contents('db/log.json', json_encode($log));
                 session_destroy();
                 header("Location:../index.html");
             }
