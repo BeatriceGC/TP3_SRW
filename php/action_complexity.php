@@ -8,11 +8,7 @@ if(!isset($_SESSION['login']) or $_SESSION['role'] != "adminClient"){
     exit;
 }
 
-// Récupération des informations de complexités dans le json
-$complexity = json_decode(file_get_contents("db/complexity.json"));
-
 // Récupération des variables pour la complexité du mot de passe
-
 $min_car = htmlspecialchars($_POST['min_car']);
 $med_car = htmlspecialchars($_POST['med_car']);
 $opti_car = htmlspecialchars($_POST['opti_car']);

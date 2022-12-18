@@ -87,15 +87,15 @@ if(!isset($_SESSION['login']) or $_SESSION['role'] != "adminClient"){
 
                     <div class="grid2">
                         <div class="settingCategory">Durée de validité d'un mot de passe</div>
-                        <input class="nbT1" type="number" value="" placeholder="années" min="0" oninput="validity.valid||(value='');">
-                        <input class="nbT1" type="number" value="" placeholder="mois" min="0" oninput="validity.valid||(value='');">
-                        <input class="nbT1" type="number" value="" placeholder="jours" min="0" oninput="validity.valid||(value='');">
+                        <input class="nbT1" name="years" type="number" value="" placeholder="années" min="0" oninput="validity.valid||(value='');">
+                        <input class="nbT1" name="months" type="number" value="" placeholder="mois" min="0" oninput="validity.valid||(value='');">
+                        <input class="nbT1" name="days" type="number" value="" placeholder="jours" min="0" oninput="validity.valid||(value='');">
                         <div></div>
                     </div>
 
                     <div class="grid1">
                         <div class="settingCategory">Nombre max de tentatives d'authentification</div>
-                        <input class="nbTry" type="number" value="" min="0" oninput="validity.valid||(value='');">
+                        <input class="nbTry" name="max_attempt" type="number" value="" min="0" oninput="validity.valid||(value='');">
                         <div></div>
                     </div>
                 </div>
