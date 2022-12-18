@@ -65,8 +65,8 @@ function compare_password(string $name, string $clear_mdp) : bool {
 function search_account_attempts(string $acc) : bool {
     $acc_attempts = json_decode(file_get_contents("db/attempts.json"));
     for ($i = 0; $i < sizeof($acc_attempts); $i++) {
-        // Recherche par nom
-        if ($acc_attempts[$i]->name == $acc) {
+        // Recherche par nom et par ip pour éviter les attaques par force brute
+        if ($acc_attempts[$i]->name == $acc or $acc_attempts[$i]->adresse == getIp()) {
             // Regarde si la dernière tentative est récente
             $interval = new DateInterval("PT2M");
             $time = date_create_from_format("U", $acc_attempts->timestamp)->add($interval)->format("H:i:s");
