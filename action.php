@@ -24,6 +24,8 @@ if (empty($mdp2)) {
     for ($i = 0; $i < sizeof($users); $i++) {
         // Test des identifiants dans la bdd
         if ($users[$i]->email == $email) {
+            // On regarde si c'est la première tentative de connexion du compte ou non
+            if (search_account_attempts($users[$i]->name)) exit;
             // Comparaison des mots de passe
             if (compare_password($users[$i]->name, $mdp) and $users[$i]->actif) {
                 // la connexion est réussie

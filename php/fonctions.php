@@ -60,3 +60,38 @@ function compare_password(string $name, string $clear_mdp) : bool {
     }
     return false;
 }
+
+// Fonction pour trouver si un compte à déjà fait une tentative de connexion récente ou non
+function search_account_attempts(string $acc) : bool {
+    $acc_attempts = json_decode(file_get_contents("db/attempts.json"));
+    for ($i = 0; $i < sizeof($acc_attempts); $i++) {
+        // Recherche par nom
+        if ($acc_attempts[$i]->name == $acc) {
+            // Regarde si la dernière tentative est récente
+            $interval = new DateInterval("PT2M");
+            $time = date_create_from_format("U", $acc_attempts->timestamp)->add($interval)->format("H:i:s");
+            // La dernière tentative remonte à moins de 2 minutes
+            if($time >= time()){
+                // Reset le temps de la tentative et incrémentation du compteur de tentative
+                $cur_attempts = $acc_attempts[$i]->cur_attempts + 1;
+                $acc_attempts[$i] = array(
+                    'name' => $acc,
+                    'timestamp' => new DateTime(),
+                    'cur_attempts' => $cur_attempts
+                );
+                file_put_contents("db/attempts.json", json_encode($acc_attempts));
+                return true;
+            } else {
+                // On a bien trouvé le compte, mais c'est la première tentative dans les deux dernières minutes
+                $acc_attempts[$i] = array(
+                    'name' => $acc,
+                    'timestamp' => new DateTime(),
+                    'cur_attempts' => 0
+                );
+                file_put_contents("db/attempts.json", json_encode($acc_attempts));
+                return false;
+            }
+        }
+    }
+    return false;
+}
