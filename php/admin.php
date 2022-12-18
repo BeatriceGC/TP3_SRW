@@ -49,24 +49,24 @@ if(!isset($_SESSION['login']) or $_SESSION['role'] != "adminClient"){
                     <div class="settingTitle">Optimal</div>
 
                     <div class="settingCategory">Nombre de caractères</div>
-                    <input type="number" class="nbCara" value="" min="0" oninput="validity.valid||(value='');">
-                    <input type="number" class="nbCara" value="" min="0" oninput="validity.valid||(value='');">
-                    <input type="number" class="nbCara" value="" min="0" oninput="validity.valid||(value='');">
+                    <input type="number" name = "min_car" class="nbCara" value="" min="0" oninput="validity.valid||(value='');">
+                    <input type="number" name = "med_car" class="nbCara" value="" min="0" oninput="validity.valid||(value='');">
+                    <input type="number" name = "opti_car" class="nbCara" value="" min="0" oninput="validity.valid||(value='');">
 
                     <div class="settingCategory">Nombre de chiffres</div>
-                    <input type="number" class="nbChiffres" value="" min="0" oninput="validity.valid||(value='');">
-                    <input type="number" class="nbChiffres" value="" min="0" oninput="validity.valid||(value='');">
-                    <input type="number" class="nbChiffres" value="" min="0" oninput="validity.valid||(value='');">
+                    <input type="number" name = "min_digit" class="nbChiffres" value="" min="0" oninput="validity.valid||(value='');">
+                    <input type="number" name = "med_digit" class="nbChiffres" value="" min="0" oninput="validity.valid||(value='');">
+                    <input type="number" name = "opti_digit" class="nbChiffres" value="" min="0" oninput="validity.valid||(value='');">
 
                     <div class="settingCategory">Nombre de caractères spéciaux</div>
-                    <input type="number" class="nbSpeciaux" value="" min="0" oninput="validity.valid||(value='');">
-                    <input type="number" class="nbSpeciaux" value="" min="0" oninput="validity.valid||(value='');">
-                    <input type="number" class="nbSpeciaux" value="" min="0" oninput="validity.valid||(value='');">
+                    <input type="number" name = "min_spec" class="nbSpeciaux" value="" min="0" oninput="validity.valid||(value='');">
+                    <input type="number" name = "med_spec" class="nbSpeciaux" value="" min="0" oninput="validity.valid||(value='');">
+                    <input type="number" name = "opti_spec" class="nbSpeciaux" value="" min="0" oninput="validity.valid||(value='');">
 
                     <div class="settingCategory">Nombre de majuscules</div>
-                    <input type="number" class="nbMaj" value="" min="0" oninput="validity.valid||(value='');">
-                    <input type="number" class="nbMaj" value="" min="0" oninput="validity.valid||(value='');">
-                    <input type="number" class="nbMaj" value="" min="0" oninput="validity.valid||(value='');">
+                    <input type="number" name = "min_maj" class="nbMaj" value="" min="0" oninput="validity.valid||(value='');">
+                    <input type="number" name = "med_maj" class="nbMaj" value="" min="0" oninput="validity.valid||(value='');">
+                    <input type="number" name = "opti_maj" class="nbMaj" value="" min="0" oninput="validity.valid||(value='');">
                 </div>
                 <button id="reset" onclick="setLastSettingsComplexity()">réinitialiser</button>
                 <button id="validate" onclick="setNewSettingsComplexity()">valider</button>
