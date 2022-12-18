@@ -109,7 +109,7 @@ if(!isset($_SESSION['login']) or $_SESSION['role'] != "adminClient"){
                 <div id="TrySettings">
                     <div class="grid1">
                         <div class="settingCategory">Nombre max de tentatives successives</div>
-                        <input class="nbTry" type="number" value="" min="0" oninput="validity.valid||(value='');">
+                        <input class="nbTry" name="successives_attempts" type="number" value="" min="0" oninput="validity.valid||(value='');">
                         <div></div>
                     </div>
 
@@ -123,9 +123,9 @@ if(!isset($_SESSION['login']) or $_SESSION['role'] != "adminClient"){
 
                     <div class="grid2">
                         <div class="settingCategory">Délai d'attente après dépassement</div>
-                        <input class="nbT2" type="number" value="" placeholder="heures" min="0" oninput="validity.valid||(value='');">
-                        <input class="nbT2" type="number" value="" placeholder="minutes" min="0" oninput="validity.valid||(value='');">
-                        <input class="nbT2" type="number" value="" placeholder="secondes" min="0" oninput="validity.valid||(value='');">
+                        <input class="nbT2" name="heures" type="number" value="" placeholder="heures" min="0" oninput="validity.valid||(value='');">
+                        <input class="nbT2" name="minutes" type="number" value="" placeholder="minutes" min="0" oninput="validity.valid||(value='');">
+                        <input class="nbT2" name="secondes" type="number" value="" placeholder="secondes" min="0" oninput="validity.valid||(value='');">
                         <div></div>
                     </div>
                     <button id="reset3" onclick="setLastSettingsTry()">réinitialiser</button>
