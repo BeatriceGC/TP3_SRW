@@ -2,7 +2,7 @@
   {
     "name": "hadrien",
     "email": "hadrien@example.com",
-    "password": "ab7ad9f14198078c2a32403f6dfb6715",
+    "password": "0d01f81d7c490517fbf87de8c94f8af9",
     "role": "adminClient",
     "actif": true
   },
@@ -19,5 +19,12 @@
     "password": "8a8fc09a5d17a2a906365dbfad58232460ff3b86c9fbc53fd8712bd2d3d18287",
     "role": "residentielClient",
     "actif": true
+  },
+  {
+    "name": "Jeremy Discord",
+    "email": "jeremy@discord.ca",
+    "password": "8dde289f7e10aad4ed5ac514875e65cffdb1cd148bd04f26",
+    "role": "adminClient",
+    "actif": false
   }
 ]

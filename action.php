@@ -11,17 +11,33 @@ $mdp2 = htmlspecialchars($_POST['password2']);
 $role = htmlspecialchars($_POST['typeClient']);
 
 // Récupération de la base de données
-$users = json_decode(file_get_contents("data.json"));
-$salt_bdd = json_decode(file_get_contents("salt.json"));
-$log = json_decode(file_get_contents("log.json"));
+$users = json_decode(file_get_contents("db/data.json"));
+$salt_bdd = json_decode(file_get_contents("db/salt.json"));
+$log = json_decode(file_get_contents("db/log.json"));
 
 // Récupération de l'IP et de la date pour les logs
 $ip = getIp();
 $date = date('d-m-y h:i:s');
 
 if (empty($mdp2)) {
+    // Ouverture du fichier des tentatives de connexions seulement si c'est une connexion.
+    $acc_attempts = json_decode(file_get_contents("bd/attempts.json"));
+    $attempts_param = json_decode(file_get_contents("db/param_attempts.json"));
     // Utilisateur veut se connecter
     for ($i = 0; $i < sizeof($users); $i++) {
+        // On regarde si c'est la première tentative de connexion du compte ou non
+        if (search_account_attempts($users[$i]->name)) {
+            // On récupère le nombre courant de tentative
+            $cur = get_attempts($users[$i]->name);
+            // On vérifie que ce n'est pas plus que le max
+            if($cur >= $attempts_param->successives_attempts) {
+                // on fait patientier
+                exit;
+            } else {
+                // Incrémente le cur
+                exit;
+            }
+        }
         // Test des identifiants dans la bdd
         if ($users[$i]->email == $email) {
             // Comparaison des mots de passe
@@ -98,9 +114,13 @@ if (empty($mdp2)) {
         'state' => true
     );
 
-    file_put_contents('log.json', json_encode($log));
+    file_put_contents('db/log.json', json_encode($log));
     $file = json_encode($users);
-    file_put_contents('data.json', $file);
-    file_put_contents('salt.json', json_encode($salt_bdd));
+    file_put_contents('db/data.json', $file);
+    file_put_contents('db/salt.json', json_encode($salt_bdd));
     header("Location:index.html");
 }
+//else {
+//    echo('Votre connexion à échoué plus de 5 fois. Vous allez devoir attendre avant de pouvoir continuer.\n');
+//    echo ("La tentative de connexion ayant échoué, cliquez <a href='index.html'>ici</a> pour retourner à l'accueil\n");
+//}

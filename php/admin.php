@@ -49,24 +49,24 @@ if(!isset($_SESSION['login']) or $_SESSION['role'] != "adminClient"){
                     <div class="settingTitle">Optimal</div>
 
                     <div class="settingCategory">Nombre de caractères</div>
-                    <input type="number" class="nbCara" value="" min="0" oninput="validity.valid||(value='');">
-                    <input type="number" class="nbCara" value="" min="0" oninput="validity.valid||(value='');">
-                    <input type="number" class="nbCara" value="" min="0" oninput="validity.valid||(value='');">
+                    <input type="number" name = "min_car" class="nbCara" value="" min="0" oninput="validity.valid||(value='');">
+                    <input type="number" name = "med_car" class="nbCara" value="" min="0" oninput="validity.valid||(value='');">
+                    <input type="number" name = "opti_car" class="nbCara" value="" min="0" oninput="validity.valid||(value='');">
 
                     <div class="settingCategory">Nombre de chiffres</div>
-                    <input type="number" class="nbChiffres" value="" min="0" oninput="validity.valid||(value='');">
-                    <input type="number" class="nbChiffres" value="" min="0" oninput="validity.valid||(value='');">
-                    <input type="number" class="nbChiffres" value="" min="0" oninput="validity.valid||(value='');">
+                    <input type="number" name = "min_digit" class="nbChiffres" value="" min="0" oninput="validity.valid||(value='');">
+                    <input type="number" name = "med_digit" class="nbChiffres" value="" min="0" oninput="validity.valid||(value='');">
+                    <input type="number" name = "opti_digit" class="nbChiffres" value="" min="0" oninput="validity.valid||(value='');">
 
                     <div class="settingCategory">Nombre de caractères spéciaux</div>
-                    <input type="number" class="nbSpeciaux" value="" min="0" oninput="validity.valid||(value='');">
-                    <input type="number" class="nbSpeciaux" value="" min="0" oninput="validity.valid||(value='');">
-                    <input type="number" class="nbSpeciaux" value="" min="0" oninput="validity.valid||(value='');">
+                    <input type="number" name = "min_spec" class="nbSpeciaux" value="" min="0" oninput="validity.valid||(value='');">
+                    <input type="number" name = "med_spec" class="nbSpeciaux" value="" min="0" oninput="validity.valid||(value='');">
+                    <input type="number" name = "opti_spec" class="nbSpeciaux" value="" min="0" oninput="validity.valid||(value='');">
 
                     <div class="settingCategory">Nombre de majuscules</div>
-                    <input type="number" class="nbMaj" value="" min="0" oninput="validity.valid||(value='');">
-                    <input type="number" class="nbMaj" value="" min="0" oninput="validity.valid||(value='');">
-                    <input type="number" class="nbMaj" value="" min="0" oninput="validity.valid||(value='');">
+                    <input type="number" name = "min_maj" class="nbMaj" value="" min="0" oninput="validity.valid||(value='');">
+                    <input type="number" name = "med_maj" class="nbMaj" value="" min="0" oninput="validity.valid||(value='');">
+                    <input type="number" name = "opti_maj" class="nbMaj" value="" min="0" oninput="validity.valid||(value='');">
                 </div>
                 <button id="reset" onclick="setLastSettingsComplexity()">réinitialiser</button>
                 <button id="validate" onclick="setNewSettingsComplexity()">valider</button>
@@ -87,15 +87,15 @@ if(!isset($_SESSION['login']) or $_SESSION['role'] != "adminClient"){
 
                     <div class="grid2">
                         <div class="settingCategory">Durée de validité d'un mot de passe</div>
-                        <input class="nbT1" type="number" value="" placeholder="années" min="0" oninput="validity.valid||(value='');">
-                        <input class="nbT1" type="number" value="" placeholder="mois" min="0" oninput="validity.valid||(value='');">
-                        <input class="nbT1" type="number" value="" placeholder="jours" min="0" oninput="validity.valid||(value='');">
+                        <input class="nbT1" name="years" type="number" value="" placeholder="années" min="0" oninput="validity.valid||(value='');">
+                        <input class="nbT1" name="months" type="number" value="" placeholder="mois" min="0" oninput="validity.valid||(value='');">
+                        <input class="nbT1" name="days" type="number" value="" placeholder="jours" min="0" oninput="validity.valid||(value='');">
                         <div></div>
                     </div>
 
                     <div class="grid1">
                         <div class="settingCategory">Nombre max de tentatives d'authentification</div>
-                        <input class="nbTry" type="number" value="" min="0" oninput="validity.valid||(value='');">
+                        <input class="nbTry" name="max_attempt" type="number" value="" min="0" oninput="validity.valid||(value='');">
                         <div></div>
                     </div>
                 </div>
@@ -109,7 +109,7 @@ if(!isset($_SESSION['login']) or $_SESSION['role'] != "adminClient"){
                 <div id="TrySettings">
                     <div class="grid1">
                         <div class="settingCategory">Nombre max de tentatives successives</div>
-                        <input class="nbTry" type="number" value="" min="0" oninput="validity.valid||(value='');">
+                        <input class="nbTry" name="successives_attempts" type="number" value="" min="0" oninput="validity.valid||(value='');">
                         <div></div>
                     </div>
 
@@ -123,9 +123,9 @@ if(!isset($_SESSION['login']) or $_SESSION['role'] != "adminClient"){
 
                     <div class="grid2">
                         <div class="settingCategory">Délai d'attente après dépassement</div>
-                        <input class="nbT2" type="number" value="" placeholder="heures" min="0" oninput="validity.valid||(value='');">
-                        <input class="nbT2" type="number" value="" placeholder="minutes" min="0" oninput="validity.valid||(value='');">
-                        <input class="nbT2" type="number" value="" placeholder="secondes" min="0" oninput="validity.valid||(value='');">
+                        <input class="nbT2" name="heures" type="number" value="" placeholder="heures" min="0" oninput="validity.valid||(value='');">
+                        <input class="nbT2" name="minutes" type="number" value="" placeholder="minutes" min="0" oninput="validity.valid||(value='');">
+                        <input class="nbT2" name="secondes" type="number" value="" placeholder="secondes" min="0" oninput="validity.valid||(value='');">
                         <div></div>
                     </div>
                     <button id="reset3" onclick="setLastSettingsTry()">réinitialiser</button>
@@ -156,17 +156,17 @@ if(!isset($_SESSION['login']) or $_SESSION['role'] != "adminClient"){
                 <form id="myForm" name="myForm" action="action_changepass.php" method="post">
                     <div class="inputs" id="divName">
                         <label for="name">Ancien mot de passe :</label>
-                        <input type="password" name="old" maxlength="12" id="name" placeholder="Votre ancien mot de passe" />
+                        <input type="password" name="old" maxlength="12" id="name" placeholder="Votre ancien mot de passe" required />
                     </div>
 
                     <div class="inputs">
                         <label for="password">Nouveau mot de passe :</label>
-                        <input type="password" name="password" maxlength="12" id="password" placeholder="Entrez votre nouveau mot de passe" />
+                        <input type="password" name="password" maxlength="12" id="password" placeholder="Entrez votre nouveau mot de passe" required />
                     </div>
 
                     <div class="inputs">
                         <label for="password2">Confirmer le nouveau mot de passe :</label>
-                        <input type="password" name="password2" maxlength="12" id="password2" placeholder="Confirmer votre nouveau mot de passe" />
+                        <input type="password" name="password2" maxlength="12" id="password2" placeholder="Confirmer votre nouveau mot de passe" required />
                     </div>
 
                     <div class="errorUser" id="error_password">Les mots de passe se dévisagent sans se reconnaitre :/</div>

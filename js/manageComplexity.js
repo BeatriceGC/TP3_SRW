@@ -29,9 +29,9 @@ function UpdateCpt() {
 
     for(let k=0; k<entry.length; k++)
     {
-        for(let i=0; i<speciaux.length; i++) if (entry[k] == speciaux[i]) {cptSpeciaux++; break;}
-        for(let i=0; i<lettresMaj.length; i++) if (entry[k] == lettresMaj[i]) {cptMaj++; break;}
-        for(let i=0; i<chiffres.length; i++) if (entry[k] == chiffres[i]) {cptChiffres++; break;}
+        for(let i=0; i<speciaux.length; i++) if (entry[k] === speciaux[i]) {cptSpeciaux++; break;}
+        for(let i=0; i<lettresMaj.length; i++) if (entry[k] === lettresMaj[i]) {cptMaj++; break;}
+        for(let i=0; i<chiffres.length; i++) if (entry[k] === chiffres[i]) {cptChiffres++; break;}
 
     }
 }
