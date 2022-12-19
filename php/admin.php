@@ -182,13 +182,11 @@ if(!isset($_SESSION['login']) or $_SESSION['role'] != "adminClient"){
             </div>
         </div>
 
-        <a href="../index.html"><button>Index</button></a>
-        <a href="residentielClient.php"><button>ResidentielClient</button></a>
-        <a href="affaireClient.php"><button>AffaireClient</button></a>
+
 
         <footer>
             <div></div>
-            <div>Hadrien BELLEVILLE - <a href="https://www.linkedin.com/in/b%C3%A9atrice-garcia-cegarra-bb6a841a2/">Béatrice GARCIA CEGARRA</a></div>
+            <div>Hadrien BELLEVILLE - Béatrice GARCIA CEGARRA - Bilal SAFI</div>
             <div>Travail Pratique #3</div>
             <div><a href="https://cours.uqac.ca/8INF138">8INF138 - Sécurité des Réseaux et du Web</a></div>
         </footer>
