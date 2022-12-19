@@ -106,5 +106,3 @@ function increment_attempt(string $acc) : void {
         }
     }
 }
-
-echo (date('h:i:s'));

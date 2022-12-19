@@ -21,23 +21,23 @@ $date = date('d-m-y h:i:s');
 
 if (empty($mdp2)) {
     // Ouverture du fichier des tentatives de connexions seulement si c'est une connexion.
-    $acc_attempts = json_decode(file_get_contents("bd/attempts.json"));
+    $acc_attempts = json_decode(file_get_contents("db/attempts.json"));
     $attempts_param = json_decode(file_get_contents("db/param_attempts.json"));
     // Utilisateur veut se connecter
     for ($i = 0; $i < sizeof($users); $i++) {
         // On regarde si c'est la première tentative de connexion du compte ou non
-        if (search_account_attempts($users[$i]->name)) {
-            // On récupère le nombre courant de tentative
-            $cur = get_attempts($users[$i]->name);
-            // On vérifie que ce n'est pas plus que le max
-            if($cur >= $attempts_param->successives_attempts) {
-                // on fait patientier
-                exit;
-            } else {
-                // Incrémente le cur
-                exit;
-            }
-        }
+//        if (search_account_attempts($users[$i]->name)) {
+//            // On récupère le nombre courant de tentative
+//            $cur = get_attempts($users[$i]->name);
+//            // On vérifie que ce n'est pas plus que le max
+//            if($cur >= $attempts_param->successives_attempts) {
+//                // on fait patientier
+//                exit;
+//            } else {
+//                // Incrémente le cur
+//                exit;
+//            }
+//        }
         // Test des identifiants dans la bdd
         if ($users[$i]->email == $email) {
             // Comparaison des mots de passe
