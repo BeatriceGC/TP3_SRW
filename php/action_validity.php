@@ -19,4 +19,5 @@ $timestamp = array(
     'max_attempts' => $max_attempts
 );
 
-file_put_contents("db/validity.json", json_encode($timestamp), "w");
+file_put_contents("db/validity.json", json_encode($timestamp));
+header('Location:admin.php');

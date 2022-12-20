@@ -43,4 +43,5 @@ $param = array(
     "opti_maj" => $opti_maj,
 );
 
-file_put_contents('db/complexity.json', json_encode($param), 'w');
+file_put_contents('db/complexity.json', json_encode($param));
+header('Location:admin.php');
