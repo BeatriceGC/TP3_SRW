@@ -23,7 +23,7 @@ function UpdateCpt() {
     cptSpeciaux = 0;
     cptCara = 0;
 
-    let entry = document.getElementById("password").value;
+    let entry = document.getElementById("password_sign").value;
 
     cptCara = entry.length;
 
@@ -79,7 +79,7 @@ function UpdateComplexity() {
 }
 
 function addEventInput(){
-    let input = document.getElementById('password');
+    let input = document.getElementById('password_sign');
     input.addEventListener("input", function (event) {
         if(mode === "signup")
         {
@@ -93,6 +93,6 @@ function updateInputLength() {
     console.log("JSONload");
     console.log(complexityJSON)
 
-    document.getElementById('password').maxLength = complexityJSON.nbCaracteres[2];
-    document.getElementById('password2').maxLength = complexityJSON.nbCaracteres[2];
+    document.getElementById('password_sign').maxLength = complexityJSON.nbCaracteres[2];
+    document.getElementById('password_confirm').maxLength = complexityJSON.nbCaracteres[2];
 }

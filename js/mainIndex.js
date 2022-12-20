@@ -1,37 +1,32 @@
 
 let mode = "login";
 
-function switchMode() {
-    if(mode === "login")
+function switchMode () {
+
+    console.log(event.target.id)
+    if (event.target.id === "switchLog" || event.target.id === "switchLog")
     {
-        document.getElementById("switch_span").innerText = "se connecter"
-        document.getElementById("validate").value = "S'inscrire";
+        document.getElementById("wrapperLog").style.display = "grid";
+        document.getElementById("wrapperSign").style.display = "none";
+        document.getElementById("wrapperForgot").style.display = "none";
 
-        document.getElementById("confirm_password").style.display = "grid";
-        document.getElementById("divName").style.display = "grid";
-        document.getElementById("complexity").style.display = "grid";
-        document.getElementById("radioButtons").style.display = "grid";
-
-        document.getElementById("complexity").style.visibility = "hidden";
-        document.getElementById("wrapper").style.overflowY = "scroll";
-
-        document.getElementById("myForm").onsubmit = signUp;
-        mode = "signup";
+        document.getElementById("wrapperLog").onsubmit = logIn;
     }
-    else if(mode === "signup")
+    else if (event.target.id === "switchSign")
     {
-        document.getElementById("switch_span").innerText = "s'inscrire"
-        document.getElementById("validate").value = "Se connecter";
+        document.getElementById("wrapperLog").style.display = "none";
+        document.getElementById("wrapperSign").style.display = "grid";
+        document.getElementById("wrapperForgot").style.display = "none";
+        init();
+        document.getElementById("wrapperSign").onsubmit = signUp;
+    }
+    else if (event.target.id === "forgotMdP")
+    {
+        document.getElementById("wrapperLog").style.display = "none";
+        document.getElementById("wrapperSign").style.display = "none";
+        document.getElementById("wrapperForgot").style.display = "grid";
 
-        document.getElementById("confirm_password").style.display = "none";
-        document.getElementById("divName").style.display = "grid";
-        document.getElementById("complexity").style.display = "none";
-        document.getElementById("radioButtons").style.display = "none";
-
-        document.getElementById("wrapper").style.overflowY = "hidden";
-
-        document.getElementById("myForm").onsubmit = logIn;
-        mode = "login";
+        document.getElementById("wrapperForgot").onsubmit = forgotMdP;
     }
 }
 
@@ -42,13 +37,12 @@ function signUp() {
     alert("sign up !");
 }
 
-
+function forgotMdP() {
+    alert("forgotten MdP !");
+}
 
 
 function init() {
     addEventInput()
     updateInputLength();
 }
-
-
-window.onload = init;

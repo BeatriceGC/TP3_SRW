@@ -40,7 +40,7 @@ if(!isset($_SESSION['login']) or $_SESSION['role'] != "adminClient"){
         </div>
 
         <div class="wrapper" id="wrapReglages">
-            <div class="user">
+            <form class="user">
                 <h2>Complexité des Mots de Passe</h2>
                 <div id="complexitySettings">
                     <div class="settingTitle">Paramètre</div>
@@ -68,12 +68,12 @@ if(!isset($_SESSION['login']) or $_SESSION['role'] != "adminClient"){
                     <input type="number" name = "med_maj" class="nbMaj" value="" min="0" oninput="validity.valid||(value='');">
                     <input type="number" name = "opti_maj" class="nbMaj" value="" min="0" oninput="validity.valid||(value='');">
                 </div>
-                <button id="reset" onclick="setLastSettingsComplexity()">réinitialiser</button>
-                <button id="validate" onclick="setNewSettingsComplexity()">valider</button>
+                <button class="formButton" id="reset" onclick="setLastSettingsComplexity()">réinitialiser</button>
+                <input class="formButton" id="validate" type="submit" value="Valider">
                 <div class="error">Oh Oh... messing with number order</div>
-            </div>
+            </form>
 
-            <div class="user">
+            <form class="user">
                 <h2>Validité des Mots de Passe</h2>
                 <div id="ValiditySettings">
 
@@ -99,12 +99,12 @@ if(!isset($_SESSION['login']) or $_SESSION['role'] != "adminClient"){
                         <div></div>
                     </div>
                 </div>
-                <button id="reset2" onclick="setLastSettingsValidity()">réinitialiser</button>
-                <button id="validate2" onclick="setNewSettingsValidity()">valider</button>
+                <button class="formButton" id="reset2" onclick="setLastSettingsValidity()">réinitialiser</button>
+                <input class="formButton" id="validate2" type="submit" value="Valider">
                 <div class="error">Oh Oh... messing with number order</div>
-            </div>
+            </form>
 
-            <div class="user">
+            <form class="user">
                 <h2>Gestion des tentatives</h2>
                 <div id="TrySettings">
                     <div class="grid1">
@@ -128,11 +128,11 @@ if(!isset($_SESSION['login']) or $_SESSION['role'] != "adminClient"){
                         <input class="nbT2" name="secondes" type="number" value="" placeholder="secondes" min="0" oninput="validity.valid||(value='');">
                         <div></div>
                     </div>
-                    <button id="reset3" onclick="setLastSettingsTry()">réinitialiser</button>
-                    <button id="validate3" onclick="setNewSettingsTry()">valider</button>
+                    <button class="formButton" id="reset3" onclick="setLastSettingsTry()">réinitialiser</button>
+                    <input class="formButton" id="validate3" type="submit" value="Valider">
                     <div class="error">Oh Oh... messing with number order</div>
                 </div>
-            </div>
+            </form>
         </div>
 
         <div class="wrapper" id="wrapAffaire">

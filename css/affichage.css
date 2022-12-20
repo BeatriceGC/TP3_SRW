@@ -57,6 +57,7 @@ body #options button{
     border-radius: 10px;
     padding: 5%;
     margin: 0 3px;
+    height: 100%;
 }
 
 body #options button:last-child{
@@ -69,7 +70,6 @@ body #options button:active, body #options button:hover, body #wrapper .user inp
     text-decoration: none;
     border-color: deepskyblue;
 }
-
 
 body .wrapper {
     background: antiquewhite;
