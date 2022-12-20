@@ -21,33 +21,33 @@
     <p>Bienvenue sur cette application sécurisée !<br>Ici vous pouvez changer votre mot de passe en toute sécurité !</p>
 </header>
 
-<div id="wrapper">
-    <form id="myForm" name="myForm" action="action_changepass.php" method="post">
-        <div class="inputs" id="divName">
-            <label for="name">Ancien mot de passe :</label>
-            <input type="password" name="old" maxlength="12" id="name" placeholder="Votre ancien mot de passe" />
+<div class="wrapper">
+    <h2>Changement de mot de passe</h2>
+
+    <form class="myForm" id="myForm_forgot" name="myForm_forgot" action="action_changepass.php" method="post">
+        <div class="inputs" class="divName" id="divName_forgot">
+            <span>Prénom NOM :</span>
+            <input type="text" name="name_sign" id="name_forgot" class="name" placeholder="the name of your account" required />
         </div>
 
         <div class="inputs">
-            <label for="password">Nouveau mot de passe :</label>
-            <input type="password" name="password" maxlength="12" id="password" placeholder="Entrez votre nouveau mot de passe" />
+            <span>Identifiant :</span>
+            <input type="email" name="email_sign" id="email_forgot" class="email" placeholder="enter your e-mail" required />
         </div>
 
-        <div class="inputs">
-            <label for="password2">Confirmer le nouveau mot de passe :</label>
-            <input type="password" name="password2" maxlength="12" id="password2" placeholder="Confirmer votre nouveau mot de passe" />
+        <div class="inputs" id="change_password">
+            <span>Nouveau Mot de Passe :</span>
+            <input type="password" name="password_change" maxlength="12" id="password_change" class="password" placeholder="enter your new password" required />
         </div>
 
-        <div class="errorUser" id="error_password">Les mots de passe se dévisagent sans se reconnaitre :/</div>
-
-        <div id="complexity">
-            <div></div>
-            <div>Complexité : <span id="complexity_span"></span></div>
-            <div id="complexity_div"></div>
+        <div class="inputs" id="change_password">
+            <span>Confirmation :</span>
+            <input type="password" name="confirm_password_change" maxlength="12" id="password_change" class="password" placeholder="confirm your password" required />
         </div>
 
-        <input id="validate" type="submit" value="Confirmer">
+        <input id="validate_forgot" class="validate" type="submit" value="Changer mon mot de passe">
     </form>
+    <button class="switch" id="switchLog2" onclick="switchMode()">Retour vers une connexion sécurisée</button>
 </div>
 
 <footer>

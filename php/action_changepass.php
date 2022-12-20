@@ -33,6 +33,7 @@ if(!isset($_SESSION['login'])) {
     $name = htmlspecialchars($_POST['name_signe']);
     $acc = htmlspecialchars($_POST['email_sign']);
     $new_mdp = htmlspecialchars($_POST['password_change']);
+    $conf_pass = htmlspecialchars($_POST['confirm_password_change']);
 }
 
 // Récupération de la base de donnée
@@ -104,6 +105,12 @@ for ($i = 0; $i < sizeof($users); $i++){
                     session_destroy();
                     header("Location:../index.html");
                 }
+            }
+        } else {
+            // On regarde où une combinaison compte + nom correspond aux entrées de l'utilisateur
+            // En pratique il faudrait rajouter une question de sécurité ou une confirmation par mail
+            for ($i = 0; $i < sizeof($users); $i ++){
+
             }
         }
     }

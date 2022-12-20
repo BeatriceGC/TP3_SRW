@@ -28,8 +28,10 @@ for ($i = 0; $i < sizeof($users); $i++) {
         // On regarde s'il y en a pas trop par rapport au max dans les paramètres
         if ($cur >= $attempts_param->successives_attempts)
             // Si la limite de temps n'est pas encore dépassée
-            if ($acc_attempts[$i]->timestamp >= time()+2*60)
-                header("Location:../index.html");
+            if ($acc_attempts[$i]->timestamp >= time()+2*60) {
+                echo("Si vous avez oublié votre mot de passe vous pouvez cliquer <a href='changepass.php'>ici</a> pour le modifier.");
+                exit;
+            }
         $cur = 0; // Reset du compteur
         $acc_attempts[$i] = array(
             'acc' => $email,
