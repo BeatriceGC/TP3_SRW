@@ -26,10 +26,10 @@ for ($i = 0; $i < sizeof($users); $i++) {
         // On récupère son nombre de tentatives
         $cur = get_attempts($email);
         // On regarde s'il y en a pas trop par rapport au max dans les paramètres
-        if ($cur >= $attempts_param[$i]->successives_attempts)
+        if ($cur >= $attempts_param->successives_attempts)
             // Si la limite de temps n'est pas encore dépassée
             if ($acc_attempts[$i]->timestamp >= time()+2*60)
-                header("Location:index.html");
+                header("Location:../index.html");
         $cur = 0; // Reset du compteur
         $acc_attempts[$i] = array(
             'acc' => $email,

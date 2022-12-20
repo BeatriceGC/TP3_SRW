@@ -26,5 +26,12 @@
     "password": "8dde289f7e10aad4ed5ac514875e65cffdb1cd148bd04f26",
     "role": "adminClient",
     "actif": false
+  },
+  {
+    "name": "alex",
+    "email": "alex@debile.com",
+    "password": "3d5fb5efff99adcac084f08482448214d8cd38a0",
+    "role": "adminClient",
+    "actif": true
   }
 ]
