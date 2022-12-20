@@ -66,12 +66,9 @@ function search_account_attempts(string $acc) : bool {
     $acc_attempts = json_decode(file_get_contents("db/attempts.json"));
     for ($i = 0; $i < sizeof($acc_attempts); $i++) {
         // Recherche par nom et par ip pour éviter les attaques par force brute
-        if ($acc_attempts[$i]->name == $acc) {
+        if ($acc_attempts[$i]->acc == $acc) {
             // Regarde si la dernière tentative est récente
-            $interval = new DateInterval("PT2M");
-            $time = date_create_from_format("U", $acc_attempts->timestamp)->add($interval)->format("H:i:s");
-            // La dernière tentative remonte à moins de 2 minutes
-            if($time >= time()) return true;
+            if ($acc_attempts[$i]->timestamp >= time()+2*60) return true;
             else return false;
         }
     }
@@ -82,8 +79,8 @@ function get_attempts(string $acc) : int {
     $acc_attempts = json_decode(file_get_contents("db/attempts.json"));
     for ($i = 0; $i < sizeof($acc_attempts); $i++){
         // Retrouver l'utilisateur
-        if($acc_attempts[$i]->name == $acc) {
-            return $acc_attempts[$i]->cut_attempts;
+        if($acc_attempts[$i]->acc == $acc) {
+            return $acc_attempts[$i]->cur_attempts;
         }
     }
     return 0;
@@ -92,17 +89,26 @@ function get_attempts(string $acc) : int {
 function increment_attempt(string $acc) : void {
     $acc_attempts = json_decode(file_get_contents("db/attempts.json"));
     $cur = 0;
-    for ($i = 0; $i < sizeof($acc_attempts); $i++){
-        // Retrouver l'utilisateur
-        if($acc_attempts[$i]->name == $acc) {
-            // On a bien trouvé le compte
-            $cur = $acc_attempts[$i]->cur_attempts + 1;
-            $acc_attempts[$i] = array(
-                'name' => $acc,
-                'timestamp' => new DateTime(),
-                'cur_attempts' => $cur
-            );
-            file_put_contents("db/attempts.json", json_encode($acc_attempts));
+    if (!empty($acc_attempts)){
+        for ($i = 0; $i < sizeof($acc_attempts); $i++){
+            // Retrouver l'utilisateur
+            if($acc_attempts[$i]->acc == $acc) {
+                // On a bien trouvé le compte
+                $cur = $acc_attempts[$i]->cur_attempts + 1;
+                $acc_attempts[$i] = array(
+                    'acc' => $acc,
+                    'timestamp' => date('d-m-y h:i:s'),
+                    'cur_attempts' => $cur
+                );
+            }
         }
+    } else {
+        // First ever attempt
+        $acc_attempts[] = array(
+            'acc' => $acc,
+            'timestamp' => date('d-m-y h:i:s'),
+            'cur_attempts' => $cur
+        );
     }
+    file_put_contents("db/attempts.json", json_encode($acc_attempts));
 }

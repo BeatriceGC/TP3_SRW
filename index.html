@@ -23,17 +23,17 @@
 
         <div class="wrapper" id="wrapperLog">
             <h2>Connexion</h2>
-            <form class="myForm" id="myForm_log" name="myForm_log" action="action.php" method="post">
+            <form class="myForm" id="myForm_log" name="myForm_log" action="php/action_login.php" method="post">
                 <div class="inputs">
                     <span>Identifiant :</span>
-                    <input type="email" name="email_log" id="email_log" class="email" placeholder="enter your e-mail" />
+                    <input type="email" name="email_log" id="email_log" class="email" placeholder="enter your e-mail" required />
                 </div>
 
                 <div class="errorUser" class="errorId" id="errorId_log">Cet utilisateur existe déjà, WTF</div>
 
                 <div class="inputs">
                     <span>Mot de passe :</span>
-                    <input type="password" name="password_log" maxlength="12" id="password_log" class="password" placeholder="enter your password" />
+                    <input type="password" name="password_log" maxlength="12" id="password_log" class="password" placeholder="enter your password" required />
                 </div>
 
                 <div class="errorUser" id="error_password_log" class="error_password">Les mots de passe se dévisagent sans se reconnaitre :/</div>
@@ -54,14 +54,14 @@
             <form class="myForm" id="myForm_sign" name="myForm_sign" action="action.php" method="post">
                 <div class="inputs" class="divName" id="divName_sign">
                     <span>Prénom NOM :</span>
-                    <input type="text" name="name_sign" id="name_sign" class="name" placeholder="Firstname LASTNAME" />
+                    <input type="text" name="name_sign" id="name_sign" class="name" placeholder="Firstname LASTNAME" required />
                 </div>
 
                 <div class="errorUser" id="error_id">Cet utilisateur existe déjà, WTF</div>
 
                 <div class="inputs">
                     <span>Identifiant :</span>
-                    <input type="email" name="email_sign" id="email_sign" class="email" placeholder="enter your e-mail" />
+                    <input type="email" name="email_sign" id="email_sign" class="email" placeholder="enter your e-mail" required />
                 </div>
 
                 <div id="radioButtons">
@@ -72,12 +72,12 @@
 
                 <div class="inputs">
                     <span>Mot de passe :</span>
-                    <input type="password" name="password_sign" maxlength="12" id="password_sign" class="password" placeholder="enter your password" />
+                    <input type="password" name="password_sign" maxlength="12" id="password_sign" class="password" placeholder="enter your password" required />
                 </div>
 
                 <div class="inputs" id="confirm_password">
                     <span>Confirmation Mot de passe :</span>
-                    <input type="password" name="password_confirm" maxlength="12" id="password_confirm" class="password" placeholder="confirm your password" />
+                    <input type="password" name="password_confirm" maxlength="12" id="password_confirm" class="password" placeholder="confirm your password" required />
                 </div>
 
                 <div id="complexity">
@@ -100,17 +100,17 @@
             <form class="myForm" id="myForm_forgot" name="myForm_forgot" action="action.php" method="post">
                 <div class="inputs" class="divName" id="divName_forgot">
                     <span>Prénom NOM :</span>
-                    <input type="text" name="name_sign" id="name_forgot" class="name" placeholder="Firstname LASTNAME" />
+                    <input type="text" name="name_sign" id="name_forgot" class="name" placeholder="Firstname LASTNAME" required />
                 </div>
 
                 <div class="inputs">
                     <span>Identifiant :</span>
-                    <input type="email" name="email_sign" id="email_forgot" class="email" placeholder="enter your e-mail" />
+                    <input type="email" name="email_sign" id="email_forgot" class="email" placeholder="enter your e-mail" required />
                 </div>
 
                 <div class="inputs" id="change_password">
                     <span>Nouveau Mot de Passe :</span>
-                    <input type="password" name="password_change" maxlength="12" id="password_change" class="password" placeholder="confirm your password" />
+                    <input type="password" name="password_change" maxlength="12" id="password_change" class="password" placeholder="confirm your password" required />
                 </div>
 
                 <input id="validate_forgot" class="validate" type="submit" value="Envoyer la demande de changement">
