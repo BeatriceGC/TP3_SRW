@@ -27,7 +27,7 @@ if(!isset($_SESSION['login'])) {
         }
         exit;
     }
-} else { // On fait la demande de changement de mot de passe depuis l'index
+} else { // On fait la demande de changement de mot de passe depuis l'index ou changepass.php
     $from_acc = false;
 
     $name = htmlspecialchars($_POST['name_signe']);
@@ -110,7 +110,50 @@ for ($i = 0; $i < sizeof($users); $i++){
             // On regarde où une combinaison compte + nom correspond aux entrées de l'utilisateur
             // En pratique il faudrait rajouter une question de sécurité ou une confirmation par mail
             for ($i = 0; $i < sizeof($users); $i ++){
+                if($users[$i]->name == $name and $users[$i]->email == $acc){
+                    // Nouveau sel et hash pour le nouveau mot de passe
+                    $salt = random(32);
+                    $iter = mt_rand(12, 10000);
+                    $hash = get_algo();
 
+                    // Cipher du mot de passe
+                    $passwordHash = cipher_password($new_mdp, $hash, $salt, $iter);
+                    // récupération du role du compte
+                    $role = $users[$i]->role;
+                    // Changement des données du compte
+                    $users[$i] = array(
+                        'name' => $name,
+                        'email' => $acc,
+                        'password' => $passwordHash,
+                        'role' => $role,
+                        'actif' => true
+                    );
+                    // Modification de la méthode de hash associé
+                    for ($i = 0; $i < sizeof($salt_bdd); $i++){
+                        // On recherche la colonne correspondant au compte dans le json
+                        if($salt_bdd[$i]->name == $name){
+                            $salt_bdd[$i] = array(
+                                'hash' => $hash,
+                                'salt' => $salt,
+                                'iteration' => $iter,
+                                'name' => $name
+                            );
+                        }
+                    }
+                    // Enregistrement du changement dans les logs
+                    $log[] = array(
+                        'address' => $ip,
+                        'time' => $date,
+                        'account' => $acc,
+                        'action' => 'change pass',
+                        'state' => true
+                    );
+
+                    file_put_contents('db/log.json', json_encode($log));
+                    file_put_contents('db/data.json', json_encode($users));
+                    file_put_contents('db/salt.json', json_encode($salt_bdd));
+                    header("Location:../index.html");
+                }
             }
         }
     }
