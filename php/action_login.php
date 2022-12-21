@@ -1,5 +1,5 @@
 <?php
-require("php/fonctions.php");
+require("fonctions.php");
 session_start();
 
 // Récupération des variables pour login
@@ -21,28 +21,28 @@ $attempts_param = json_decode(file_get_contents("db/param_attempts.json"));
 
 // Utilisateur veut se connecter
 for ($i = 0; $i < sizeof($users); $i++) {
-    // Regarder si l'utilisateur a le droit de se connecter
-    if(!empty($acc_attempts)) {
-        // On récupère son nombre de tentatives
-        $cur = get_attempts($email);
-        // On regarde s'il y en a pas trop par rapport au max dans les paramètres
-        if ($cur >= $attempts_param->successives_attempts)
-            // Si la limite de temps n'est pas encore dépassée
-            if ($acc_attempts[$i]->timestamp >= time()+2*60) {
-                echo("Si vous avez oublié votre mot de passe vous pouvez cliquer <a href='changepass.php'>ici</a> pour le modifier.");
-                exit;
-            }
-        $cur = 0; // Reset du compteur
-        $acc_attempts[$i] = array(
-            'acc' => $email,
-            'timestamp' => $date,
-            'cur_attempts' => $cur,
-        );
-        // On remet les tentatives de l'utilisateur à 0
-        file_put_contents("db/attempts.json", json_encode($acc_attempts));
-    }
     // Test des identifiants dans la bdd
     if ($users[$i]->email == $email) {
+        // Regarder si l'utilisateur a le droit de se connecter
+        if(!empty($acc_attempts)) {
+            // On récupère son nombre de tentatives
+            $cur = get_attempts($email);
+            // On regarde s'il y en a pas trop par rapport au max dans les paramètres
+            if ($cur >= $attempts_param->successives_attempts)
+                // Si la limite de temps n'est pas encore dépassée
+                if ($acc_attempts[$i]->timestamp >= time()+2*60) {
+                    echo("Si vous avez oublié votre mot de passe vous pouvez cliquer <a href='changepass.php'>ici</a> pour le modifier.");
+                    exit;
+                }
+            $cur = 0; // Reset du compteur
+            $acc_attempts[$i] = array(
+                'acc' => $email,
+                'timestamp' => $date,
+                'cur_attempts' => $cur,
+            );
+            // On remet les tentatives de l'utilisateur à 0
+            file_put_contents("db/attempts.json", json_encode($acc_attempts));
+        }
         // Comparaison des mots de passe
         if (compare_password($users[$i]->name, $mdp) and $users[$i]->actif) {
             // la connexion est réussie
@@ -81,12 +81,20 @@ if (!isset($_SESSION['login'])) {
             // On récupère le nombre courant de tentative
             $cur = get_attempts($email);
             // On vérifie que ce n'est pas plus que le max
-            if ($cur >= $attempts_param[$i]->successives_attempts) {
-                // on fait patientier
-                exit;
+            if ($cur >= $attempts_param->successives_attempts) {
+                if ($acc_attempts[$i]->timestamp + 2 * 60 >= time()) {
+                    echo("Trop de tentatives en peu de temps. Vous allez devoir attendre avant de réessayer");
+                    echo("Si vous avez oublié votre mot de passe vous pouvez cliquer <a href='changepass.php'>ici</a> pour le modifier.");
+                    exit;
+                } else exit;
             } else {
                 increment_attempt($email);
             }
+        } else {
+            // On reset les tentatives
+//            reset_acc_attempts($email);
+            // Et on refait une entrée
+            increment_attempt($email);
         }
     }
     // Enregistrement de la tentative de connexion

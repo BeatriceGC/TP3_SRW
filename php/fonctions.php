@@ -77,38 +77,41 @@ function search_account_attempts(string $acc) : bool {
 
 function get_attempts(string $acc) : int {
     $acc_attempts = json_decode(file_get_contents("db/attempts.json"));
-    for ($i = 0; $i < sizeof($acc_attempts); $i++){
+    $cur = 0;
+    for ($i = 0; $i <= sizeof($acc_attempts); $i++){
         // Retrouver l'utilisateur
         if($acc_attempts[$i]->acc == $acc) {
-            return $acc_attempts[$i]->cur_attempts;
+            $cur = $acc_attempts[$i]->cur_attempts;
         }
     }
-    return 0;
+    return $cur;
 }
 
 function increment_attempt(string $acc) : void {
     $acc_attempts = json_decode(file_get_contents("db/attempts.json"));
-    $cur = 0;
-    if (!empty($acc_attempts)){
-        for ($i = 0; $i < sizeof($acc_attempts); $i++){
-            // Retrouver l'utilisateur
-            if($acc_attempts[$i]->acc == $acc) {
-                // On a bien trouvé le compte
-                $cur = $acc_attempts[$i]->cur_attempts + 1;
-                $acc_attempts[$i] = array(
-                    'acc' => $acc,
-                    'timestamp' => date('d-m-y h:i:s'),
-                    'cur_attempts' => $cur
-                );
-            }
+    $cur = get_attempts($acc);
+    for ($i = 0; $i <= sizeof($acc_attempts); $i++){
+        // Retrouver l'utilisateur
+        if($acc_attempts[$i]->acc == $acc) {
+            // On a bien trouvé le compte
+            $cur += 1;
         }
-    } else {
-        // First ever attempt
-        $acc_attempts[] = array(
+        $acc_attempts[$i] = array(
             'acc' => $acc,
-            'timestamp' => date('d-m-y h:i:s'),
+            'timestamp' => time(),
             'cur_attempts' => $cur
         );
+    }
+    file_put_contents("db/attempts.json", json_encode($acc_attempts));
+}
+
+function reset_acc_attempts(string $acc) : void {
+    $acc_attempts = json_decode(file_get_contents("db/attempts.json"));
+    for ($i = 0; $i < sizeof($acc_attempts); $i++) {
+        if($acc_attempts[$i]->acc == $acc){
+            // On supprime l'entrée
+            unset($acc_attempts[$i]);
+        }
     }
     file_put_contents("db/attempts.json", json_encode($acc_attempts));
 }
