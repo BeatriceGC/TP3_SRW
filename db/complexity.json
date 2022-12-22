@@ -1,1 +1,14 @@
-{"min_car":"8","med_car":"10","opti_car":"10","min_digit":"1","med_digit":"1","opti_digit":"1","min_specials":"1","med_specials":"1","opti_specials":"1","min_maj":"1","med_maj":"1","opti_maj":"1"}
+{
+  "min_car": "8",
+  "med_car": "10",
+  "opti_car": "10",
+  "min_digit": "1",
+  "med_digit": "1",
+  "opti_digit": "1",
+  "min_specials": "1",
+  "med_specials": "1",
+  "opti_specials": "1",
+  "min_maj": "1",
+  "med_maj": "1",
+  "opti_maj": "1"
+}

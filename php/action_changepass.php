@@ -85,13 +85,17 @@ for ($i = 0; $i < sizeof($users); $i++){
                     file_put_contents('db/log.json', json_encode($log));
 
                     // Redirection vers la session attribuée
-                    if ($_SESSION['role'] == "adminClient") {
-                        header("Location:admin.php");
-                    } else if ($_SESSION['role'] == "affairesClient") {
-                        header("Location:affaireClient.php");
-                    } else if ($_SESSION['role'] == "residentielClient") {
-                        header("Location:residentielClient.php");
-                    } else header("Location:php/deconnexion.php");
+                    switch ($_SESSION['role']){
+                        case "adminClient":
+                            header("Location:admin.php");
+                            break;
+                        case "affaireClient":
+                            header("Location:affaireClient.php");
+                            break;
+                        case "residentielClient":
+                            header("Location:residentielClient.php");
+                            break;
+                    }
                 } else {
                     // Enregistrement de l'échec de changement de mot de passe dans les logs
                     $log[] = array(
