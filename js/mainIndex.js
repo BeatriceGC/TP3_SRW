@@ -4,7 +4,7 @@ let mode = "login";
 function switchMode () {
 
     console.log(event.target.id)
-    if (event.target.id === "switchLog" || event.target.id === "switchLog")
+    if (event.target.id === "switchLog" || event.target.id === "switchLog2")
     {
         document.getElementById("wrapperLog").style.display = "grid";
         document.getElementById("wrapperSign").style.display = "none";
