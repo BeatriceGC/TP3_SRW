@@ -19,4 +19,5 @@ $param = array(
     'successives_attempts' => $successives_attempts
 );
 
-file_put_contents("db/param_attempts.php", json_encode($param), "w");
+file_put_contents("db/param_attempts.json", json_encode($param));
+header('Location:admin.php');

@@ -40,7 +40,7 @@ if(!isset($_SESSION['login']) or $_SESSION['role'] != "adminClient"){
         </div>
 
         <div class="wrapper" id="wrapReglages">
-            <form class="user">
+            <form class="user" action="action_complexity.php" method="post">
                 <h2>Complexité des Mots de Passe</h2>
                 <div id="complexitySettings">
                     <div class="settingTitle">Paramètre</div>
@@ -73,7 +73,7 @@ if(!isset($_SESSION['login']) or $_SESSION['role'] != "adminClient"){
                 <div class="error">Oh Oh... messing with number order</div>
             </form>
 
-            <form class="user">
+            <form class="user" action="action_validity.php" method="post">
                 <h2>Validité des Mots de Passe</h2>
                 <div id="ValiditySettings">
 
@@ -104,7 +104,7 @@ if(!isset($_SESSION['login']) or $_SESSION['role'] != "adminClient"){
                 <div class="error">Oh Oh... messing with number order</div>
             </form>
 
-            <form class="user">
+            <form class="user" action="action_attempts.php" method="post">
                 <h2>Gestion des tentatives</h2>
                 <div id="TrySettings">
                     <div class="grid1">

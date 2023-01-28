@@ -2,7 +2,7 @@
   {
     "name": "hadrien",
     "email": "hadrien@example.com",
-    "password": "0d01f81d7c490517fbf87de8c94f8af9",
+    "password": "4cc45f4bcdb76f968add4c6682cec8d3a4f1f7ba1173bdb295bd2ac717dc18f0",
     "role": "adminClient",
     "actif": true
   },
@@ -26,5 +26,12 @@
     "password": "8dde289f7e10aad4ed5ac514875e65cffdb1cd148bd04f26",
     "role": "adminClient",
     "actif": false
+  },
+  {
+    "name": "alex",
+    "email": "alex@debile.com",
+    "password": "3d5fb5efff99adcac084f08482448214d8cd38a0",
+    "role": "adminClient",
+    "actif": true
   }
 ]
